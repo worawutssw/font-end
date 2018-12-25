@@ -1,0 +1,109 @@
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md">
+        <img src="../../assets/RMUTT-logo.png" class="rmuttlogo">
+      </div>
+      <div class="col-md">
+        <div class="welcom">
+          <div style="font-size:50px; color: honeydew">
+            ยินดีต้อนรับเข้าสู่ระบบ
+          </div>
+          <div style="font-size:20px; color: honeydew">
+            ระบบนับเก้าอี้ในชั้นเรียนแลการจัดการห้องผ่านแอพพลิเคชั่น
+            <div>Counting System For People Sitting In Class And Managing Room Via Application</div>
+          </div>
+        </div>
+
+        <div class="buttonlogin">
+          <div style="font-size:35px; color: honeydew"> ลงชื่อใช้งาน </div>
+          <br>
+
+          <img src="../../assets/login-logo.png" (click)="openModal(template)" class="imagesadmin">&nbsp;&nbsp;&nbsp;&nbsp;
+          <img src="../../assets/teacher-logo.png " (click)="openModal(template2)" class="imagesteacher">&nbsp;&nbsp;&nbsp;&nbsp;
+          <img src="../../assets/student-logo.png" (click)="openModal(template3)" class="imagesstudent">
+          <div style="font-size:35px; color: honeydew">
+            ผู้ดูแลระบบ&nbsp;อาจารย์&nbsp;&nbsp;&nbsp;นักศึกษา
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md"></div>
+    </div>
+
+  </div>
+  <!-- <footer>
+      <div style="width: 100%; background: red; bottom: 0;position: fixed;">
+        
+      </div>
+    </footer> -->
+</body>
+
+<ng-template #template id="center">
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Admin</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="exampleInputEmail1">USERNAME</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="USERNAME">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      </div>
+
+      <button type="submit" class="btn btn-danger">Submit</button>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template #template2>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Teacher</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="exampleInputEmail1">USERNAME</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="USERNAME">
+
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      </div>
+      <button type="submit" class="btn btn-danger">Submit</button>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template #template3>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Student</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="exampleInputEmail1">USERNAME</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="USERNAME">
+
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      </div>
+      <button type="submit" class="btn btn-danger">Submit</button>
+    </form>
+  </div>
+</ng-template>

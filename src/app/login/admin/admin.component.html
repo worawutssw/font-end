@@ -1,0 +1,77 @@
+
+<nav class="navbar navbar-light shadows " style="background-color: rgb(69, 77, 82)" >
+
+      
+      <a routgerLink="/admin" class="fa fa-home home" aria-hidden="true">&nbsp;หน้าหลัก</a>
+      <div class="menu " > <button class="fa fa-bars" aria-hidden="true" type="button" mat-button (click)="drawer.toggle()"></button></div>
+      <a routerLink="/login" class="fa fa-sign-out logout" aria-hidden="true">&nbsp;ออกจากระบบ</a>       
+
+
+  <div class="logout">
+      <!-- <a routerLink="/login" class="fa fa-sign-out" aria-hidden="true">ออกจากระบบ</a>    -->
+    
+    <!-- <a routerLink="/login" >
+      <i  class="fa fa-sign-out" aria-hidden="true" ></i>ออกจากระบบ</a> -->
+  </div>
+  
+</nav>
+
+
+
+
+
+<!-- <div class="container-fluid" >
+    <div class="row ">
+      <div class="col-md-2 leftbar" style="position: fixed;height: 100%; background: rgba(250, 255, 254, 0.972)">
+          <br>
+          
+          &nbsp;&nbsp;
+          <a class="textleft" routerLink="/admin/managetable"><i  class="fa fa-table " aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;จัดการตารางสอน</a><br> <br>&nbsp;&nbsp;
+          <a class="textleft" routerLink="/admin/manageuser"><i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;ข้อมูลนักศึกษา</a><br><br>&nbsp;&nbsp;
+          <a class="textleft" routerLink="/addsubject"><i class="fa fa-cog" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;จัดการอุปกรณ์</a><br> <br>&nbsp;&nbsp;
+          <a class="textleft" routerLink="/curriculum"><i class="fa fa-university" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;จัดการห้องเรียน</a><br> <br>&nbsp;&nbsp;
+          <a class="textleft" routerLink="/curriculum"><i class="fa fa-wrench" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;รายงานระบบ</a><br> <br>
+        
+      </div>
+    </div>
+  </div> -->
+
+  <mat-drawer-container class="example-container" autosize>
+      <mat-drawer #drawer class="example-sidenav " style="background-color: rgba(109, 109, 109, 0.411)" mode="side">
+                
+        &nbsp;&nbsp;
+        <a class="textleft" routerLink="/admin/managetable"><i  class="fa fa-table " aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;จัดการตารางสอน</a>&nbsp;&nbsp;
+        <a class="textleft" routerLink="/admin/manageuser"><i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp;&nbsp;ข้อมูลนักศึกษา</a>&nbsp;&nbsp;
+        <a class="textleft" routerLink="/admin/managehardware"><i class="fa fa-cog" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;จัดการอุปกรณ์</a>&nbsp;&nbsp;
+        <a class="textleft" routerLink="/admin/manageroom"><i class="fa fa-university" aria-hidden="true"></i>&nbsp;&nbsp;จัดการห้องเรียน</a>&nbsp;&nbsp;
+        <a class="textleft" routerLink="/curriculum"><i class="fa fa-wrench" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;รายงานระบบ</a>
+
+
+      </mat-drawer>
+      
+  <div style="background-color: rgba(109, 109, 109, 0.411); height: 100%;">
+    <br><br>
+        
+        
+      </div>
+
+
+       <!-- <div class="container-fluid">
+          <h1>11111111111111111111111111111111111</h1>
+        </div>  -->
+    
+
+
+    </mat-drawer-container>
+
+
+
+
+
+
+<!-- <div class="container-fluid">
+  <h1>55555555555555</h1>
+</div> -->
+
+
+<router-outlet></router-outlet>
