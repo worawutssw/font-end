@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ManagetableComponent } from './login/admin/managetable/managetable.component';
 import { ManagehardwareComponent } from './login/admin/managehardware/managehardware.component';
 import { ManagerooomComponent } from './login/admin/managerooom/managerooom.component';
+import { SystemreportComponent } from './login/admin/systemreport/systemreport.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ManagerooomComponent } from './login/admin/managerooom/managerooom.comp
     MainNavComponent,
     ManagetableComponent,
     ManagehardwareComponent,
-    ManagerooomComponent
+    ManagerooomComponent,
+    SystemreportComponent
   ],
   imports: [
     BrowserModule,

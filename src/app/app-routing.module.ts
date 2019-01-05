@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './login/admin/admin.component';
 import { LoginComponent } from './login/login.component';
@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ManagetableComponent } from './login/admin/managetable/managetable.component';
 import { ManagehardwareComponent } from './login/admin/managehardware/managehardware.component';
 import { ManagerooomComponent } from './login/admin/managerooom/managerooom.component';
+import { SystemreportComponent } from './login/admin/systemreport/systemreport.component';
 
 const routes: Routes = [
   {
@@ -26,12 +27,16 @@ const routes: Routes = [
         component: ManagetableComponent
       },
       {
-      path: 'managehardware',
-      component: ManagehardwareComponent
+        path: 'managehardware',
+        component: ManagehardwareComponent
       },
       {
         path: 'manageroom',
         component: ManagerooomComponent
+      },
+      {
+        path: 'systemreport',
+        component: SystemreportComponent
       }
     ]
   },
