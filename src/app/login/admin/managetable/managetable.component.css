@@ -1,0 +1,12 @@
+body
+{
+    background-color: aliceblue;
+    background-size: auto;
+    /* background-repeat: no-repeat;
+    background-size: cover; */
+    position: fixed;
+    /* left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0; */
+}

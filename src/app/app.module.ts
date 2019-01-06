@@ -15,6 +15,10 @@ import { ManagetableComponent } from './login/admin/managetable/managetable.comp
 import { ManagehardwareComponent } from './login/admin/managehardware/managehardware.component';
 import { ManagerooomComponent } from './login/admin/managerooom/managerooom.component';
 import { SystemreportComponent } from './login/admin/systemreport/systemreport.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthenticationService } from './sevice/authentication.service.service';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxWebstorageModule } from 'ngx-webstorage';
 
 
 @NgModule({
@@ -32,6 +36,9 @@ import { SystemreportComponent } from './login/admin/systemreport/systemreport.c
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     AppRoutingModule,
     MaterialModule,
     ModalModule.forRoot(),
@@ -40,9 +47,10 @@ import { SystemreportComponent } from './login/admin/systemreport/systemreport.c
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    NgxWebstorageModule.forRoot()
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

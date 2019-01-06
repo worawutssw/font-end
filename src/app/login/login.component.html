@@ -16,7 +16,7 @@
         </div>
 
         <div class="buttonlogin">
-          
+
           <!-- <div style="font-size:35px; color: honeydew"> ลงชื่อใช้งาน </div> -->
           <br>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -26,7 +26,7 @@
           <!-- <img src="../../assets/teacher-logo.png " (click)="openModal(template2)" class="imagesteacher">&nbsp;&nbsp;&nbsp;&nbsp;
           <img src="../../assets/student-logo.png" (click)="openModal(template3)" class="imagesstudent"> -->
           <div style="font-size:35px; color: honeydew">
-              &nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;
             ลงชื่อเข้าใช้งาน
 
           </div>
@@ -51,63 +51,17 @@
     </button>
   </div>
   <div class="modal-body">
-    <form>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
       <div class="form-group">
-        <label for="exampleInputEmail1">USERNAME</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="USERNAME">
+        <label for="exampleInputEmail1">Username</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Username" formControlName="adminid">
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" formControlName="adminpw">
       </div>
 
       <button type="submit" class="btn btn-danger">Submit</button>
     </form>
   </div>
 </ng-template>
-<!-- 
-<ng-template #template2>
-  <div class="modal-header">
-    <h4 class="modal-title pull-left">Teacher</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <form>
-      <div class="form-group">
-        <label for="exampleInputEmail1">USERNAME</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="USERNAME">
-
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-      </div>
-      <button type="submit" class="btn btn-danger">Submit</button>
-    </form>
-  </div>
-</ng-template>
-
-<ng-template #template3>
-  <div class="modal-header">
-    <h4 class="modal-title pull-left">Student</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <form>
-      <div class="form-group">
-        <label for="exampleInputEmail1">USERNAME</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="USERNAME">
-
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-      </div>
-      <button type="submit" class="btn btn-danger">Submit</button>
-    </form>
-  </div>
-</ng-template> -->
