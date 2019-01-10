@@ -8,6 +8,7 @@ import { ManagetableComponent } from './login/admin/managetable/managetable.comp
 import { ManagehardwareComponent } from './login/admin/managehardware/managehardware.component';
 import { ManagerooomComponent } from './login/admin/managerooom/managerooom.component';
 import { SystemreportComponent } from './login/admin/systemreport/systemreport.component';
+import { HomeComponent } from './login/admin/home/home.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,10 @@ const routes: Routes = [
       {
         path: 'systemreport',
         component: SystemreportComponent
+      },
+      {
+        path: 'home',
+        component: HomeComponent
       }
     ]
   },

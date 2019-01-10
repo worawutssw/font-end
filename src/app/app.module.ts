@@ -19,7 +19,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthenticationService } from './sevice/authentication.service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxWebstorageModule } from 'ngx-webstorage';
-
+import { HomeComponent } from './login/admin/home/home.component';
+import { ngxBoostarpModule } from './ngx-boostrap'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { PapaParseModule } from 'ngx-papaparse';
 
 @NgModule({
   declarations: [
@@ -31,11 +35,16 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
     ManagetableComponent,
     ManagehardwareComponent,
     ManagerooomComponent,
-    SystemreportComponent
+    SystemreportComponent,
+    HomeComponent
   ],
   imports: [
+    PapaParseModule,
     BrowserModule,
     BrowserAnimationsModule,
+    NgbModule,
+    NgbPaginationModule,
+    NgbAlertModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -48,6 +57,7 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    ngxBoostarpModule,
     NgxWebstorageModule.forRoot()
   ],
   providers: [AuthenticationService],

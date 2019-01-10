@@ -6,6 +6,7 @@ import { AuthenticationService } from '../sevice/authentication.service.service'
 import { Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 import { template } from '@angular/core/src/render3';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
   })
   modalRef: BsModalRef;
   constructor(
-    private modalService: BsModalService,
+    private modalService: NgbModal,
     private service:LoginserviceService,
     private authService:AuthenticationService,
     private route:Router
@@ -29,8 +30,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
+  openModal(template) {
+     this.modalService.open(template , {centered: true})
   }
   login(){
     console.log(this.loginForm.value)
@@ -38,8 +39,8 @@ export class LoginComponent implements OnInit {
       (res) => {
         console.log(res)
         this.authService.setActiveUser(res);
-        this.route.navigate(['admin']);
-        this.modalRef.hide();
+        this.route.navigate(['admin/home']);
+        this.modalService.dismissAll()
       }
     ),
     (err) => {

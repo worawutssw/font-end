@@ -1,0 +1,29 @@
+.mid{
+    padding-left: 32%;
+    padding-top: 20%;
+    /* padding: center; */
+}
+
+.mid2{
+    padding-left: 25%;
+
+}
+
+.mid3{
+
+    padding-left: 15%;
+}
+
+.bg{
+
+    background-color: rgb(214, 213, 213);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 60px;
+    bottom: 0;
+  }
+  

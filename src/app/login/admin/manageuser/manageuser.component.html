@@ -1,4 +1,161 @@
-<form>
-        <h1 class="mat-h1">ManageUser</h1>
-    
+<mat-toolbar>
+    <div class="toolbarst">
+        ข้อมูลนักศึกษา
+    </div>
+</mat-toolbar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <br>&nbsp;&nbsp;
+            <div class="row">
+                <div class="col-md-10">
+                    <mat-form-field>
+                        <mat-label>กลุ่มเรียน</mat-label>
+                        <mat-select (selectionChange)="selectgroup()" [formControl]="groups">
+                            <mat-option *ngFor="let list of listGroups" [value]="list.groups">{{list.groups}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-2">
+                    <div>
+                        <button type="button" (click)="openModal(addstd)" class="btn btn-primary">เพิ่มรายชื่อนักศึกษา</button>
+                    </div>
+                </div>
+            </div>
+            &nbsp;&nbsp;
+            <table class="table table-bordered shadow">
+                <thead>
+                    <tr>
+                        <th scope="col">รหัสนักศึกษา</th>
+                        <th scope="col">ชื่อ</th>
+                        <th scope="col">นามสกุล</th>
+                        <th scope="col">รหัสRFID</th>
+                        <th scope="col">แก้ใข/ลบ</th>
+
+                    </tr>
+                </thead>
+                <tbody *ngFor="let list of listName">
+                    <tr>
+                        <td>{{list.student_id}}</td>
+                        <td>{{list.name}}</td>
+                        <td>{{list.lastname}}</td>
+                        <td>{{list.rfid}}</td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-pencil" (click)="updatestd(list,editstd)"
+                                aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <i class="fa fa-trash-o" (click)="deleteSTD(list.student_id,deletestd) " aria-hidden="true"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <h3 style="margin-top: 10px;">อัพโหลดไฟล์รายชื่อนักศึกษา</h3>
+            <br>
+            <!-- <mat-form-field>
+                <mat-label>กลุ่มเรียน</mat-label>
+                <mat-select>
+                    <mat-option *ngFor = "let list of listGroups" [value]="list.groups">{{list.groups}}</mat-option>
+                </mat-select>
+            </mat-form-field> -->
+            &nbsp;&nbsp;
+            <br>
+            <label for="exampleFormControlFile1">Import File .CSV</label>
+            <input #csvData type="file" accept=".csv" (change)="onCSV()" class="form-control-file" id="exampleFormControlFile1">
+            <br>
+            <button (click)="onAddFile()" type="button" class="btn btn-info">อัพโหลด</button>
+        </div>
+    </div>
+</div>
+
+<!-- addStudent -->
+<ng-template #addstd let-modal>
+    <form class="animation " [formGroup]="addStudent" (ngSubmit)="addSTD()">
+
+        <div class="container ">
+            <h3>เพิ่มรายชื่อนักศึกษา</h3>
+            <div class="example-container ">
+                <mat-form-field class="infrom">
+                    <input matInput placeholder="รหัสนักศึกษา" formControlName="student_id">
+                </mat-form-field>
+                <br>
+                <mat-form-field class="infrom">
+                    <input matInput placeholder="ชื่อ" formControlName="name">
+                </mat-form-field>
+                <br>
+                <mat-form-field class="infrom">
+                    <input matInput placeholder="นามสกุล" formControlName="lastname">
+                </mat-form-field>
+                <br>
+                <mat-form-field class="infrom">
+                    <input matInput placeholder="รหัสRFID" formControlName="rfid">
+                </mat-form-field>
+                <br>
+                <mat-form-field class="infrom">
+                    <input matInput placeholder="กลุ่มนักศึกษา" formControlName="groups">
+                </mat-form-field>
+            </div>
+
+            <div class="button-row">
+                <button type="submit" mat-raised-button color="primary">ยืนยัน</button>
+                <button mat-raised-button color="warn" (click)="closeModal()">ยกเลิก</button>
+            </div>
+
+        </div>
     </form>
+</ng-template>
+<!-- editstudent -->
+<ng-template #editstd let-modal>
+    <form class="animation" [formGroup]="editstudent" (ngSubmit)="edit()">
+
+        <div class="container">
+            <h3>แก้ไขข้อมูล</h3>
+            <div class="example-container">
+                <fieldset disabled="disabled">
+                    <mat-form-field class="infrom">
+                        <input matInput placeholder="รหัสนักศึกษา" formControlName="student_update_student_id" [value]="updateStudent_id" [(ngModel)]="updateStudent_id">
+                    </mat-form-field>
+                </fieldset>
+                <br>
+                <mat-form-field class="infrom">
+                    <input matInput placeholder="ชื่อ" formControlName="student_update_name" [value]="updateName" [(ngModel)]="updateName">
+                </mat-form-field>
+                <br>
+                <mat-form-field class="infrom">
+                    <input matInput placeholder="นามสกุล" formControlName="student_update_lastname" [value]="updateLastname" [(ngModel)]="updateLastname">
+                </mat-form-field>
+                <br>
+                <mat-form-field class="infrom">
+                    <input matInput placeholder="รหัสRFID" formControlName="student_update_rfid" [value]="updateRfid" [(ngModel)]="updateRfid">
+                </mat-form-field>
+                <br>
+                <mat-form-field class="infrom">
+                    <input matInput placeholder="กลุ่มนักศึกษา" formControlName="student_update_groups" [value]="updateGroups" [(ngModel)]="updateGroups">
+                </mat-form-field>
+
+            </div>
+
+            <div class="button-row">
+                <button type="submit" mat-raised-button color="primary">ยืนยัน</button>
+                <button mat-raised-button color="warn" (click)="closeModal()">ยกเลิก</button>
+                <br>
+            </div>
+
+        </div>
+    </form>
+</ng-template>
+
+<!-- delete -->
+<ng-template #deletestd let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">คุณแน่ใจ?</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>ว่าคุณต้องลบชื่อนักศึกษาท่านนี้!!</p>
+    </div>
+    <div class="modal-footer">
+        <button mat-raised-button color="warn" (click)="modal.close('Close click')">ไม่</button>
+        <button mat-raised-button color="primary" (click)="deleteConfirm()">ใช่</button>
+    </div>
+</ng-template>

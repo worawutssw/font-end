@@ -1,0 +1,16 @@
+form{
+    margin: 30px;
+    transition-delay: 2s;
+}
+.infrom{
+    width: 100%;
+}
+.button-row button,
+.button-row a {
+  margin-right: 10px;
+}
+
+.dropdow
+{
+    width: 100%;
+}
