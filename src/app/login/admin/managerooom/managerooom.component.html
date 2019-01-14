@@ -1,6 +1,126 @@
 <mat-toolbar>
         <div class="toolbarst">
-        จัดการห้องเรียน
+                จัดการห้องเรียน
 
         </div>
 </mat-toolbar>
+<div class="container-fluid">
+
+
+        <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-5">
+                        <br><br>
+                        <table class="table table-bordered shadow">
+                                <thead>
+                                        <tr>
+                                                <th scope="col">หมายเลขห้อง</th>
+                                                <th scope="col">ชื่อห้อง</th>
+                                                <th scope="col">&nbsp;&nbsp;แก้ใข/ลบ</th>
+                                </thead>
+                                <tbody *ngFor="let list of listroom | filter:name">
+                                        <tr>
+                                                
+                                                <td>{{list.roomid}}</td>
+                                                <td>{{list.roomname}}</td>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <i class="fa fa-pencil" (click)="updateRoom(list,editroom)"
+                                                                aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <i class="fa fa-trash-o" (click)="deleteRoom(list.roomid,deletroom)"
+                                                                aria-hidden="true"></i></td>
+                                                
+                                        </tr>
+
+                                </tbody>
+                        </table>
+                </div>
+
+
+                <div class="col-md-3">
+                        <br><br><br>
+                        <div class=""><button type="button" (click)="openModal(addroom)" class="btn btn-info btsize">เพิ่มห้อง</button></div>
+                </div>
+                <div class="col-md-2"></div>
+
+        </div>
+
+
+</div>
+
+
+
+<!-- addroom -->
+<ng-template #addroom let-modal>
+        <form class="animation " [formGroup]="AddRoom" (ngSubmit)="addRoom()">
+
+                <div class="container ">
+                        <br>
+                        <h3>เพิ่มรายชื่อห้องเรียน</h3>
+                        <div class="example-container ">
+                                <mat-form-field class="infrom">
+                                        <input matInput placeholder="หมายเลขห้อง" formControlName="roomid">
+                                </mat-form-field>
+                                <br>
+                                <mat-form-field class="infrom">
+                                        <input matInput placeholder="ชื่อห้อง" formControlName="roomname">
+                                </mat-form-field>
+                                <br>
+
+                        </div>
+
+                        <div class="button-row">
+                                <button type="submit" mat-raised-button color="primary">ยืนยัน</button>
+                                <button mat-raised-button color="warn" (click)="closeModal()">ยกเลิก</button>
+                        </div>
+                        <br>
+                </div>
+        </form>
+</ng-template>
+
+
+<!-- delete -->
+<ng-template #deletroom let-modal>
+        <div class="modal-header">
+                <h4 class="modal-title">คุณแน่ใจ?</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                </button>
+        </div>
+        <div class="modal-body">
+                <p>ว่าคุณต้องลบห้องนี้!!</p>
+        </div>
+        <div class="modal-footer">
+                <button mat-raised-button color="warn" (click)="modal.close('Close click')">ไม่</button>
+                <button mat-raised-button color="primary" (click)="deleteRoomConfirm()">ใช่</button>
+        </div>
+</ng-template>
+
+<!-- editstudent -->
+<ng-template #editroom let-modal>
+        <form class="animation" [formGroup]="UpdateRoom" (ngSubmit)="edit()">
+                <br>
+                <div class="container">
+                        <h3>แก้ไขข้อมูล</h3>
+                        <div class="example-container">
+                                <fieldset disabled="disabled">
+                                        <mat-form-field class="infrom">
+                                                <input matInput placeholder="หมายเลขห้อง" formControlName="update_roomid"
+                                                        [value]="updateRoomid" [(ngModel)]="updateRoomid">
+                                        </mat-form-field>
+                                </fieldset>
+                                <mat-form-field class="infrom">
+                                        <input matInput placeholder="ชื่อห้อง" formControlName="update_roomname"
+                                                [value]="updateRoomname" [(ngModel)]="updateRoomname">
+                                </mat-form-field>
+
+                        </div>
+
+                        <div class="button-row">
+                                <button type="submit" mat-raised-button color="primary">ยืนยัน</button>
+                                <button mat-raised-button color="warn" (click)="closeModal()">ยกเลิก</button>
+                                <br><br>
+                        </div>
+
+                </div>
+        </form>
+</ng-template>

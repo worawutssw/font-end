@@ -24,6 +24,7 @@ import { ngxBoostarpModule } from './ngx-boostrap'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { PapaParseModule } from 'ngx-papaparse';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { PapaParseModule } from 'ngx-papaparse';
     MatIconModule,
     MatListModule,
     ngxBoostarpModule,
+    Ng2SearchPipeModule,
     NgxWebstorageModule.forRoot()
   ],
   providers: [AuthenticationService],

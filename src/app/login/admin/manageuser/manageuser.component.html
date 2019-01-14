@@ -15,6 +15,10 @@
                             <mat-option *ngFor="let list of listGroups" [value]="list.groups">{{list.groups}}</mat-option>
                         </mat-select>
                     </mat-form-field>
+                    &nbsp;
+                    <mat-form-field>
+                        <input matInput placeholder="ค้นหา" [(ngModel)]="name">
+                    </mat-form-field>
                 </div>
                 <div class="col-md-2">
                     <div>
@@ -34,7 +38,7 @@
 
                     </tr>
                 </thead>
-                <tbody *ngFor="let list of listName">
+                <tbody *ngFor="let list of listName | filter:name">
                     <tr>
                         <td>{{list.student_id}}</td>
                         <td>{{list.name}}</td>
@@ -47,21 +51,14 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-md-4">
-            <h3 style="margin-top: 10px;">อัพโหลดไฟล์รายชื่อนักศึกษา</h3>
-            <br>
-            <!-- <mat-form-field>
-                <mat-label>กลุ่มเรียน</mat-label>
-                <mat-select>
-                    <mat-option *ngFor = "let list of listGroups" [value]="list.groups">{{list.groups}}</mat-option>
-                </mat-select>
-            </mat-form-field> -->
-            &nbsp;&nbsp;
-            <br>
-            <label for="exampleFormControlFile1">Import File .CSV</label>
-            <input #csvData type="file" accept=".csv" (change)="onCSV()" class="form-control-file" id="exampleFormControlFile1">
-            <br>
-            <button (click)="onAddFile()" type="button" class="btn btn-info">อัพโหลด</button>
+        <div class="col-md-4"><br><br><br><br>
+            <form class="uploadForm shadow">
+                <h4 style="margin-top: 10px;"><b>อัพโหลดไฟล์รายชื่อนักศึกษา</b></h4>
+                <label for="exampleFormControlFile1">Import File .CSV</label>
+                <input #csvData type="file" accept=".csv" (change)="onCSV()" class="form-control-file" id="exampleFormControlFile1">
+                <br>
+                <button (click)="onAddFile()" type="button" class="btn btn-info shadow" style="border-radius: 20px;">อัพโหลด</button>
+            </form>
         </div>
     </div>
 </div>
@@ -111,24 +108,28 @@
             <div class="example-container">
                 <fieldset disabled="disabled">
                     <mat-form-field class="infrom">
-                        <input matInput placeholder="รหัสนักศึกษา" formControlName="student_update_student_id" [value]="updateStudent_id" [(ngModel)]="updateStudent_id">
+                        <input matInput placeholder="รหัสนักศึกษา" formControlName="student_update_student_id" [value]="updateStudent_id"
+                            [(ngModel)]="updateStudent_id">
                     </mat-form-field>
                 </fieldset>
-                <br>
                 <mat-form-field class="infrom">
-                    <input matInput placeholder="ชื่อ" formControlName="student_update_name" [value]="updateName" [(ngModel)]="updateName">
+                    <input matInput placeholder="ชื่อ" formControlName="student_update_name" [value]="updateName"
+                        [(ngModel)]="updateName">
                 </mat-form-field>
                 <br>
                 <mat-form-field class="infrom">
-                    <input matInput placeholder="นามสกุล" formControlName="student_update_lastname" [value]="updateLastname" [(ngModel)]="updateLastname">
+                    <input matInput placeholder="นามสกุล" formControlName="student_update_lastname" [value]="updateLastname"
+                        [(ngModel)]="updateLastname">
                 </mat-form-field>
                 <br>
                 <mat-form-field class="infrom">
-                    <input matInput placeholder="รหัสRFID" formControlName="student_update_rfid" [value]="updateRfid" [(ngModel)]="updateRfid">
+                    <input matInput placeholder="รหัสRFID" formControlName="student_update_rfid" [value]="updateRfid"
+                        [(ngModel)]="updateRfid">
                 </mat-form-field>
                 <br>
                 <mat-form-field class="infrom">
-                    <input matInput placeholder="กลุ่มนักศึกษา" formControlName="student_update_groups" [value]="updateGroups" [(ngModel)]="updateGroups">
+                    <input matInput placeholder="กลุ่มนักศึกษา" formControlName="student_update_groups" [value]="updateGroups"
+                        [(ngModel)]="updateGroups">
                 </mat-form-field>
 
             </div>
