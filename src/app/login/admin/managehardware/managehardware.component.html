@@ -1,6 +1,168 @@
 <mat-toolbar>
         <div class="toolbarst">
-        จัดการอุปกรณ์
+                จัดการอุปกรณ์
 
         </div>
 </mat-toolbar>
+
+<div class="container-fluid">
+
+
+        <div class="row">
+                <!-- <div class="col-md-1"></div> -->
+                <div class="col-md-10">
+                        <br><br>
+                        <table class="table table-bordered shadow">
+                                <thead>
+                                        <tr>
+                                                <th scope="col">หมายเลขอุปกรณ์</th>
+                                                <th scope="col">ชื่ออุปกรณ์</th>
+                                                <th scope="col">แบตเตอรี่ของอุปกรณ์</th>
+                                                <!-- <th scope="col">รหัสRFIDคนนั่ง</th> -->
+                                                <th scope="col" style="width: 150px">สถานะอุปกรณ์</th>
+                                                <th scope="col">สถานะการณ์นั่ง</th>
+                                                <th scope="col">&nbsp;&nbsp;แก้ใข/ลบ</th>
+
+                                </thead>
+                                <tbody *ngFor="let list of listhardware | filter:name" >
+                                        <tr>
+
+                                                <td>{{list.hardwareid}}</td>
+                                                <td>{{list.hardwarename}}</td>
+                                                <td *ngIf="list.hardwarebatt>=0 && list.hardwarebatt<=20">
+                                                        <ngb-progressbar type="danger" [value]="list.hardwarebatt"
+                                                                [striped]="true" [animated]="true">
+                                                                <i>{{list.hardwarebatt}}%</i></ngb-progressbar>
+                                                </td>
+                                                <td *ngIf="list.hardwarebatt>20 && list.hardwarebatt<=30">
+                                                        <ngb-progressbar type="warning" [value]="list.hardwarebatt"
+                                                                [striped]="true" [animated]="true">
+                                                                <i>{{list.hardwarebatt}}%</i></ngb-progressbar>
+                                                </td>
+                                                <td *ngIf="list.hardwarebatt>30 && list.hardwarebatt<=60">
+                                                        <ngb-progressbar type="info" [value]="list.hardwarebatt"
+                                                                [striped]="true" [animated]="true">
+                                                                <i>{{list.hardwarebatt}}%</i></ngb-progressbar>
+                                                </td>
+                                                <td *ngIf="list.hardwarebatt>60 && list.hardwarebatt<=100">
+                                                        <ngb-progressbar type="success" [value]="list.hardwarebatt"
+                                                                [striped]="true" [animated]="true">
+                                                                <i>{{list.hardwarebatt}}%</i></ngb-progressbar>
+                                                </td>
+                                                <!-- <td>{{list.hardwarerfid}}</td> -->
+                                                <td *ngIf="list.hardwarestatus == 1"
+                                                        class="badge badge-pill badge-success"
+                                                        style="margin-left: 20%; margin-top: 5px; ">Connected</td>
+                                                <td *ngIf="list.hardwarestatus == 0"
+                                                        class="badge badge-pill badge-danger"
+                                                        style="margin-left: 20%;margin-top: 5px">Disconnect</td>
+                                                <td *ngIf="list.hardwaresit == 1">มีผู้ใช้งาน</td>
+                                                <td *ngIf="list.hardwaresit == 0">ไม่มีผู้ใช้งาน</td>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <i class="fa fa-pencil"
+                                                                (click)="updatehardware(list,edithardware)"
+                                                                aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <i class="fa fa-trash-o"
+                                                                (click)="deleteHardware(list.hardwareid,deletehardware)"
+                                                                aria-hidden="true"></i></td>
+
+
+                                        </tr>
+
+                                </tbody>
+                        </table>
+                </div>
+
+
+                <div class="col-md-2">
+                        <br><br><br>
+                        <div><button type="button" (click)="openModal(addhardware)"
+                                        class="btn btn-info btsize">เพิ่มอุปกรณ์</button></div>
+
+                </div>
+                <!-- <div class="col-md-1"></div> -->
+
+        </div>
+
+
+</div>
+
+
+
+<!-- AddHardware -->
+<ng-template #addhardware let-modal>
+        <form class="animation " [formGroup]="AddHardware" (ngSubmit)="AddHardWareSubmit()">
+
+                <div class="container ">
+                        <br>
+                        <h3>เพิ่มอุปกรณ์</h3>
+                        <div class="example-container ">
+                                <mat-form-field class="infrom">
+                                        <input matInput placeholder="หมายเลขอุปกรณ์" formControlName="hardwareid">
+                                </mat-form-field>
+                                <br>
+                                <mat-form-field class="infrom">
+                                        <input matInput placeholder="ชื่ออุปกรณ์" formControlName="hardwarename">
+                                </mat-form-field>
+                                <br>
+
+                        </div>
+
+                        <div class="button-row">
+                                <button type="submit" mat-raised-button color="primary">ยืนยัน</button>
+                                <button mat-raised-button color="warn" (click)="closeModal()">ยกเลิก</button>
+                        </div>
+                        <br>
+                </div>
+        </form>
+</ng-template>
+
+
+<!-- delete -->
+<ng-template #deletehardware let-modal>
+        <div class="modal-header">
+                <h4 class="modal-title">คุณแน่ใจ?</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                </button>
+        </div>
+        <div class="modal-body">
+                <p>ว่าคุณต้องการลบอุปกรณ์นี้!!</p>
+        </div>
+        <div class="modal-footer">
+                <button mat-raised-button color="warn" (click)="modal.close('Close click')">ไม่</button>
+                <button mat-raised-button color="primary" (click)="deletehardwareConfirm()">ใช่</button>
+        </div>
+</ng-template>
+
+<!-- edithardware -->
+<ng-template #edithardware let-modal>
+        <form class="animation" [formGroup]="UpdateHardware" (ngSubmit)="Edit()">
+                <br>
+                <div class="container">
+                        <h3>แก้ไขชื่ออุปกรณ์ฮาร์ดแว</h3>
+                        <div class="example-container">
+                                <fieldset disabled="disabled">
+                                        <mat-form-field class="infrom">
+                                                <input matInput placeholder="หมายเลขอุปกรณ์"
+                                                        formControlName="updateHardwareid" [value]="updateHardwareid"
+                                                        [(ngModel)]="updateHardwareid">
+                                        </mat-form-field>
+                                </fieldset>
+
+                                <mat-form-field class="infrom">
+                                        <input matInput placeholder="ชื่ออุปกรณ์" formControlName="updatehardwarename"
+                                                [value]="updateHardwarename" [(ngModel)]="updateHardwarename">
+                                </mat-form-field>
+
+                        </div>
+
+                        <div class="button-row">
+                                <button type="submit" mat-raised-button color="primary">ยืนยัน</button>
+                                <button mat-raised-button color="warn" (click)="closeModal()">ยกเลิก</button>
+                                <br><br>
+                        </div>
+
+                </div>
+        </form>
+</ng-template>

@@ -1,7 +1,7 @@
  .buttonlogin
 {
     margin-top:25%;
-    margin-left: 60px;
+    margin-left: 120px;
 }
 
 body{
@@ -29,9 +29,10 @@ body{
 #center{
     margin-top: 100px;
 }
-.imagesadmin{height: 120px;}
-.imagesteacher{height: 120px;}
-.imagesstudent{height: 120px;}
-.welcom{margin-top: 20%;}
-.rmuttlogo{height: 400px;margin-top:10%;margin-left: 20%}
+.imagesadmin{height: 100px;margin-left: 50px}
+/* .imagesteacher{height: 120px;} */
+/* .imagesstudent{height: 120px;} */
+.welcom{margin-top: 10%;}
+.rmuttlogo{width: 80%;margin-top:10%;margin-left: 15%;}
 .login-top{margin-left: 50%}
+.bglogin{background-color: rgba(190, 190, 190, 0.15)}

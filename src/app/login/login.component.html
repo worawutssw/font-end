@@ -1,10 +1,10 @@
 <body>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md">
+      <div class="col-md-4">
         <img src="../../assets/RMUTT-logo.png" class="rmuttlogo">
       </div>
-      <div class="col-md">
+      <div class="col-md-8">
         <div class="welcom">
           <div style="font-size:50px; color: honeydew">
             ยินดีต้อนรับเข้าสู่ระบบ
@@ -18,21 +18,21 @@
         <div class="buttonlogin">
 
           <!-- <div style="font-size:35px; color: honeydew"> ลงชื่อใช้งาน </div> -->
-          <br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          
+          <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
 
 
-          <img src="../../assets/login-logo.png" (click)="openModal(template)" class="imagesadmin">&nbsp;&nbsp;&nbsp;&nbsp;
+          <img src="../../assets/login-logo.png" (click)="openModal(template)" class="imagesadmin">
           <!-- <img src="../../assets/teacher-logo.png " (click)="openModal(template2)" class="imagesteacher">&nbsp;&nbsp;&nbsp;&nbsp;
           <img src="../../assets/student-logo.png" (click)="openModal(template3)" class="imagesstudent"> -->
-          <div style="font-size:35px; color: honeydew">
-            &nbsp;&nbsp;&nbsp;
+          <div style="font-size:35px; color: honeydew ">
+            
             ลงชื่อเข้าใช้งาน
 
           </div>
         </div>
       </div>
-      <div class="col-md"></div>
+      <!-- <div class="col-md"></div> -->
     </div>
 
   </div>
@@ -45,13 +45,13 @@
 
 <ng-template #template let-modal>
   
-    <div class="modal-header">
+    <div class="modal-header bglogin">
       <h4 class="modal-title pull-left">Admin</h4>
       <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <div class="modal-body">
+    <div class="modal-body bglogin">
       <form [formGroup]="loginForm" (ngSubmit)="login()">
         <div class="form-group">
           <label for="exampleInputEmail1">Username</label>

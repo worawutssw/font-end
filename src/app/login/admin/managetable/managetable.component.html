@@ -13,7 +13,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-8 ">
+        <div class="col-md ">
             <div>
                 <form>
                     <div class="form-group">
@@ -21,34 +21,21 @@
                         &nbsp;&nbsp;
                         <mat-form-field>
                             <mat-label>ปีการศึกษา</mat-label>
-                            <mat-select>
-                                <mat-option value="2556">2556</mat-option>
-                                <mat-option value="2557">2557</mat-option>
-                                <mat-option value="2558">2558</mat-option>
-                                <mat-option value="2559">2559</mat-option>
-                                <mat-option value="2560">2560</mat-option>
-                                <mat-option value="2561">2561</mat-option>
-                            </mat-select>
-                        </mat-form-field>
-                        &nbsp;&nbsp;
-                        <mat-form-field>
-                            <mat-label>เทอม</mat-label>
-                            <mat-select>
-                                <mat-option value="1">1</mat-option>
-                                <mat-option value="2">2</mat-option>
+                            <mat-select [formControl]="term">
+                                <mat-option *ngFor="let list of listterm" [value]="list.Term">{{list.Term}}</mat-option>
                             </mat-select>
                         </mat-form-field>
                         &nbsp;
                         <mat-form-field>
                             <mat-label>กลุ่มเรียน</mat-label>
-                            <mat-select>
-                                <mat-option value="58346CPE">58346CPE</mat-option>
-                                <mat-option value="58446CPE">58446CPE</mat-option>
-                                <mat-option value="58146CPE">58146CPE</mat-option>
+                            <mat-select [formControl]="sec">
+                                <mat-option *ngFor="let list of liststdgroup" [value]="list.Sec">{{list.Sec}}
+                                </mat-option>
+
                             </mat-select>
                         </mat-form-field>
                         &nbsp;&nbsp;
-                        <button type="button" class="btn btn-success">ตกลง</button>
+                        <button type="button" class="btn btn-success" (click)="gettable()"> ตกลง</button>
 
                         <br>
 
@@ -56,123 +43,275 @@
 
                 </form>
             </div>
-            <br><br>
+            <br>
 
             <table class="table table-bordered shadow">
                 <thead style="font-size: 12px;">
                     <tr>
-                        <th scope="col">วัน/เวลา</th>
-                        <th scope="col">8.00-9.00 น.</th>
-                        <th scope="col">9.00-10.00 น.</th>
-                        <th scope="col">10.00-11.00 น.</th>
-                        <th scope="col">12.00-13.00 น.</th>
-                        <th scope="col">13.00-14.00 น.</th>
-                        <th scope="col">15.00-16.00 น.</th>
-                        <th scope="col">16.00-17.00 น.</th>
-                        <th scope="col">17.00-18.00 น.</th>
-                        <th scope="col">18.00-19.00 น.</th>
-                        <th scope="col">19.00-20.00 น.</th>
-                        <th scope="col">20.00-21.00 น.</th>
+                        <th scope="col">Day/Time</th>
+                        <th scope="col">8.00-9.00</th>
+                        <th scope="col">9.00-10.00</th>
+                        <th scope="col">10.00-11.00</th>
+                        <th scope="col">11.00-12.00</th>
+                        <th scope="col">12.00-13.00</th>
+                        <th scope="col">13.00-14.00</th>
+                        <th scope="col">14.00-15.00</th>
+                        <th scope="col">15.00-16.00</th>
+                        <th scope="col">16.00-17.00</th>
+                        <th scope="col">17.00-18.00</th>
+                        <th scope="col">18.00-19.00</th>
+                        <th scope="col">19.00-20.00</th>
+                        <th scope="col">20.00-21.00</th>
                     </tr>
                 </thead>
-                <tbody style="font-size: 12px;">
+                <tbody style="font-size: 12px;" *ngFor="let list of listtable">
                     <tr>
-                        <th scope="row">จันทร์</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">อังคาร</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">พุธ</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">พฤหัส</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">ศุกร์</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">เสาร์</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">อาทิตย์</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <th>{{list.Day}}</th>
+                        <!-- <td>{{list.Time1}}</td>
+                        <td>{{list.Time2}}</td>
+                        <td>{{list.Time3}}</td>
+                        <td>{{list.Time4}}</td>
+                        <td>{{list.Time5}}</td>
+                        <td>{{list.Time6}}</td>
+                        <td>{{list.Time7}}</td>
+                        <td>{{list.Time8}}</td>
+                        <td>{{list.Time9}}</td>
+                        <td>{{list.Time10}}</td>
+                        <td>{{list.Time11}}</td>
+                        <td>{{list.Time12}}</td>
+                        <td>{{list.Time13}}</td> -->
+                        <td *ngIf="list.Time1 == '' || !list.Time1" class="nondataTable">{{list.Time1}}</td>
+                        <td *ngIf="((list.Time1 !== list.Time2) && (list.Time1 != '' && list.Time1 !== null)) "
+                            class="dataTable">{{list.Time1}}</td>
+                        <td *ngIf="((list.Time1 === list.Time2) && (list.Time1 !== list.Time3) && (list.Time1 != '' && list.Time1 !== null)) "
+                            class="dataTable" colspan="2">{{list.Time1}}</td>
+                        <td *ngIf="((list.Time1 === list.Time2) && (list.Time1 === list.Time3) && (list.Time1 !== list.Time4) && (list.Time1 != '' && list.Time1 !== null)) "
+                            class="dataTable" colspan="3">{{list.Time1}}</td>
+                        <td *ngIf="((list.Time1 === list.Time2) && (list.Time1 === list.Time3) && (list.Time1 === list.Time4) && (list.Time1 !== list.Time5) && (list.Time1 != '' && list.Time1 !== null)) "
+                            class="dataTable" colspan="4">{{list.Time1}}</td>
+                        <td *ngIf="((list.Time1 === list.Time2) && (list.Time1 === list.Time3) && (list.Time1 === list.Time4) && (list.Time1 === list.Time5) && (list.Time1 !== list.Time6) && (list.Time1 != '' && list.Time1 !== null)) "
+                            class="dataTable" colspan="5">{{list.Time1}}</td>
+                        <td *ngIf="((list.Time1 === list.Time2) && (list.Time1 === list.Time3) && (list.Time1 === list.Time4) && (list.Time1 === list.Time5) && (list.Time1 === list.Time6) && (list.Time1 !== list.Time7) && (list.Time1 != '' && list.Time1 !== null)) "
+                            class="dataTable" colspan="6">{{list.Time1}}</td>
+                        <td *ngIf="((list.Time1 === list.Time2) && (list.Time1 === list.Time3) && (list.Time1 === list.Time4) && (list.Time1 === list.Time5) && (list.Time1 === list.Time6) && (list.Time1 === list.Time7) && (list.Time1 !== list.Time8) && (list.Time1 != '' && list.Time1 !== null)) "
+                            class="dataTable" colspan="7">{{list.Time1}}</td>
+                        <td *ngIf="((list.Time1 === list.Time2) && (list.Time1 === list.Time3) && (list.Time1 === list.Time4) && (list.Time1 === list.Time5) && (list.Time1 === list.Time6) && (list.Time1 === list.Time7) && (list.Time1 === list.Time8) && (list.Time1 !== list.Time9) && (list.Time1 != '' && list.Time1 !== null)) "
+                            class="dataTable" colspan="8">{{list.Time1}}</td>
+                        <td *ngIf="((list.Time1 === list.Time2) && (list.Time1 === list.Time3) && (list.Time1 === list.Time4) && (list.Time1 === list.Time5) && (list.Time1 === list.Time6) && (list.Time1 === list.Time7) && (list.Time1 === list.Time8) && (list.Time1 === list.Time9) && (list.Time1 !== list.Time10) && (list.Time1 != '' && list.Time1 !== null)) "
+                            class="dataTable" colspan="9">{{list.Time1}}</td>
+                        <td *ngIf="((list.Time1 === list.Time2) && (list.Time1 === list.Time3) && (list.Time1 === list.Time4) && (list.Time1 === list.Time5) && (list.Time1 === list.Time6) && (list.Time1 === list.Time7) && (list.Time1 === list.Time8) && (list.Time1 === list.Time9) && (list.Time1 === list.Time10) && (list.Time1 !== list.Time11) && (list.Time1 != '' && list.Time1 !== null)) "
+                            class="dataTable" colspan="10">{{list.Time1}}</td>
+                        <td *ngIf="((list.Time1 === list.Time2) && (list.Time1 === list.Time3) && (list.Time1 === list.Time4) && (list.Time1 === list.Time5) && (list.Time1 === list.Time6) && (list.Time1 === list.Time7) && (list.Time1 === list.Time8) && (list.Time1 === list.Time9) && (list.Time1 === list.Time10) && (list.Time1 === list.Time11) && (list.Time1 !== list.Time12) && (list.Time1 != '' && list.Time1 !== null)) "
+                            class="dataTable" colspan="11">{{list.Time1}}</td>
+                        <td *ngIf="((list.Time1 === list.Time2) && (list.Time1 === list.Time3) && (list.Time1 === list.Time4) && (list.Time1 === list.Time5) && (list.Time1 === list.Time6) && (list.Time1 === list.Time7) && (list.Time1 === list.Time8) && (list.Time1 === list.Time9) && (list.Time1 === list.Time10) && (list.Time1 === list.Time11) && (list.Time1 === list.Time12) && (list.Time1 !== list.Time13) && (list.Time1 != '' && list.Time1 !== null)) "
+                            class="dataTable" colspan="12">{{list.Time1}}</td>
+                        <td *ngIf="((list.Time1 === list.Time2) && (list.Time1 === list.Time3) && (list.Time1 === list.Time4) && (list.Time1 === list.Time5) && (list.Time1 === list.Time6) && (list.Time1 === list.Time7) && (list.Time1 === list.Time8) && (list.Time1 === list.Time9) && (list.Time1 === list.Time10) && (list.Time1 === list.Time11) && (list.Time1 === list.Time12) && (list.Time1 === list.Time13) && (list.Time1 != '' && list.Time1 !== null)) "
+                            class="dataTable" colspan="13">{{list.Time1}}</td>
+
+                        <td *ngIf="list.Time2 == '' || !list.Time2" class="nondataTable">{{list.Time2}}</td>
+                        <td *ngIf="((list.Time2 !== list.Time1) && (list.Time2 !== list.Time3) && (list.Time2 != '' && list.Time2 !== null)) "
+                            class="dataTable">{{list.Time2}}</td>
+                        <td *ngIf="((list.Time2 !== list.Time1) && (list.Time2 === list.Time3) && (list.Time2 !== list.Time4) && (list.Time2 != '' && list.Time2 !== null)) "
+                            class="dataTable" colspan="2">{{list.Time2}}</td>
+                        <td *ngIf="((list.Time2 !== list.Time1) && (list.Time2 === list.Time3) && (list.Time2 === list.Time4) && (list.Time2 !== list.Time5) && (list.Time2 != '' && list.Time2 !== null)) "
+                            class="dataTable" colspan="3">{{list.Time2}}</td>
+                        <td *ngIf="((list.Time2 !== list.Time1) && (list.Time2 === list.Time3) && (list.Time2 === list.Time4) && (list.Time2 === list.Time5) && (list.Time2 !== list.Time6) && (list.Time2 != '' && list.Time2 !== null)) "
+                            class="dataTable" colspan="4">{{list.Time2}}</td>
+                        <td *ngIf="((list.Time2 !== list.Time1) && (list.Time2 === list.Time3) && (list.Time2 === list.Time4) && (list.Time2 === list.Time5) && (list.Time2 === list.Time6) && (list.Time2 !== list.Time7) && (list.Time2 != '' && list.Time2 !== null)) "
+                            class="dataTable" colspan="5">{{list.Time2}}</td>
+                        <td *ngIf="((list.Time2 !== list.Time1) && (list.Time2 === list.Time3) && (list.Time2 === list.Time4) && (list.Time2 === list.Time5) && (list.Time2 === list.Time6) && (list.Time2 === list.Time7) && (list.Time2 !== list.Time8) && (list.Time2 != '' && list.Time2 !== null)) "
+                            class="dataTable" colspan="6">{{list.Time2}}</td>
+                        <td *ngIf="((list.Time2 !== list.Time1) && (list.Time2 === list.Time3) && (list.Time2 === list.Time4) && (list.Time2 === list.Time5) && (list.Time2 === list.Time6) && (list.Time2 === list.Time7) && (list.Time2 === list.Time8) && (list.Time2 !== list.Time9) && (list.Time2 != '' && list.Time2 !== null)) "
+                            class="dataTable" colspan="7">{{list.Time2}}</td>
+                        <td *ngIf="((list.Time2 !== list.Time1) && (list.Time2 === list.Time3) && (list.Time2 === list.Time4) && (list.Time2 === list.Time5) && (list.Time2 === list.Time6) && (list.Time2 === list.Time7) && (list.Time2 === list.Time8) && (list.Time2 === list.Time9) && (list.Time2 !== list.Time10) && (list.Time2 != '' && list.Time2 !== null)) "
+                            class="dataTable" colspan="8">{{list.Time2}}</td>
+                        <td *ngIf="((list.Time2 !== list.Time1) && (list.Time2 === list.Time3) && (list.Time2 === list.Time4) && (list.Time2 === list.Time5) && (list.Time2 === list.Time6) && (list.Time2 === list.Time7) && (list.Time2 === list.Time8) && (list.Time2 === list.Time9) && (list.Time2 === list.Time10) && (list.Time2 !== list.Time11) && (list.Time2 != '' && list.Time2 !== null)) "
+                            class="dataTable" colspan="9">{{list.Time2}}</td>
+                        <td *ngIf="((list.Time2 !== list.Time1) && (list.Time2 === list.Time3) && (list.Time2 === list.Time4) && (list.Time2 === list.Time5) && (list.Time2 === list.Time6) && (list.Time2 === list.Time7) && (list.Time2 === list.Time8) && (list.Time2 === list.Time9) && (list.Time2 === list.Time10) && (list.Time2 === list.Time11) && (list.Time2 !== list.Time12) && (list.Time2 != '' && list.Time2 !== null)) "
+                            class="dataTable" colspan="10">{{list.Time2}}</td>
+                        <td *ngIf="((list.Time2 !== list.Time1) && (list.Time2 === list.Time3) && (list.Time2 === list.Time4) && (list.Time2 === list.Time5) && (list.Time2 === list.Time6) && (list.Time2 === list.Time7) && (list.Time2 === list.Time8) && (list.Time2 === list.Time9) && (list.Time2 === list.Time10) && (list.Time2 === list.Time11) && (list.Time2 === list.Time12) && (list.Time2 !== list.Time13) && (list.Time2 != '' && list.Time2 !== null)) "
+                            class="dataTable" colspan="11">{{list.Time2}}</td>
+                        <td *ngIf="((list.Time2 !== list.Time1) && (list.Time2 === list.Time3) && (list.Time2 === list.Time4) && (list.Time2 === list.Time5) && (list.Time2 === list.Time6) && (list.Time2 === list.Time7) && (list.Time2 === list.Time8) && (list.Time2 === list.Time9) && (list.Time2 === list.Time10) && (list.Time2 === list.Time11) && (list.Time2 === list.Time12) && (list.Time2 === list.Time13) && (list.Time2 != '' && list.Time2 !== null)) "
+                            class="dataTable" colspan="12">{{list.Time2}}</td>
+
+
+                        <td *ngIf="list.Time3 == '' || !list.Time3" class="nondataTable">{{list.Time3}}</td>
+                        <td *ngIf="((list.Time3 !== list.Time2) && (list.Time3 !== list.Time4) && (list.Time3 != '' && list.Time3 !== null))"
+                            class="dataTable">{{list.Time3}}</td>
+                        <td *ngIf="((list.Time3 !== list.Time2) && (list.Time3 === list.Time4) && (list.Time3 !== list.Time5) && (list.Time3 != '' && list.Time3 !== null))"
+                            class="dataTable" colspan="2">{{list.Time3}}</td>
+                        <td *ngIf="((list.Time3 !== list.Time2) && (list.Time3 === list.Time4) && (list.Time3 === list.Time5) && (list.Time3 !== list.Time6) && (list.Time3 != '' && list.Time3 !== null))"
+                            class="dataTable" colspan="3">{{list.Time3}}</td>
+                        <td *ngIf="((list.Time3 !== list.Time2) && (list.Time3 === list.Time4) && (list.Time3 === list.Time5) && (list.Time3 === list.Time6) && (list.Time3 !== list.Time7) && (list.Time3 != '' && list.Time3 !== null))"
+                            class="dataTable" colspan="4">{{list.Time3}}</td>
+                        <td *ngIf="((list.Time3 !== list.Time2) && (list.Time3 === list.Time4) && (list.Time3 === list.Time5) && (list.Time3 === list.Time6) && (list.Time3 === list.Time7)
+              && (list.Time3 !== list.Time8) && (list.Time3 != '' && list.Time3 !== null))" class="dataTable"
+                            colspan="5">{{list.Time3}}</td>
+                        <td *ngIf="((list.Time3 !== list.Time2) && (list.Time3 === list.Time4) && (list.Time3 === list.Time5) && (list.Time3 === list.Time6) && (list.Time3 === list.Time7)
+              && (list.Time3 === list.Time8) && (list.Time3 !== list.Time9) && (list.Time3 != '' && list.Time3 !== null))"
+                            class="dataTable" colspan="6">{{list.Time3}}</td>
+                        <td *ngIf="((list.Time3 !== list.Time2) && (list.Time3 === list.Time4) && (list.Time3 === list.Time5) && (list.Time3 === list.Time6) && (list.Time3 === list.Time7)
+              && (list.Time3 === list.Time8) && (list.Time3 === list.Time9) && (list.Time3 !== list.Time10) && (list.Time3 != '' && list.Time3 !== null))"
+                            class="dataTable" colspan="7">{{list.Time3}}</td>
+                        <td *ngIf="((list.Time3 !== list.Time2) && (list.Time3 === list.Time4) && (list.Time3 === list.Time5) && (list.Time3 === list.Time6) && (list.Time3 === list.Time7)
+              && (list.Time3 === list.Time8) && (list.Time3 === list.Time9) && (list.Time3 === list.Time10) && (list.Time3 !== list.Time11) && (list.Time3 != '' && list.Time3 !== null))"
+                            class="dataTable" colspan="8">{{list.Time3}}</td>
+                        <td *ngIf="((list.Time3 !== list.Time2) && (list.Time3 === list.Time4) && (list.Time3 === list.Time5) && (list.Time3 === list.Time6) && (list.Time3 === list.Time7)
+              && (list.Time3 === list.Time8) && (list.Time3 === list.Time9) && (list.Time3 === list.Time10) && (list.Time3 === list.Time11) && (list.Time3 !== list.Time12) && (list.Time3 != '' && list.Time3 !== null))"
+                            class="dataTable" colspan="9">{{list.Time3}}</td>
+                        <td *ngIf="((list.Time3 !== list.Time2) && (list.Time3 === list.Time4) && (list.Time3 === list.Time5) && (list.Time3 === list.Time6) && (list.Time3 === list.Time7)
+              && (list.Time3 === list.Time8) && (list.Time3 === list.Time9) && (list.Time3 === list.Time10) && (list.Time3 === list.Time11) && (list.Time3 === list.Time12)
+              && (list.Time3 !== list.Time13) && (list.Time3 != '' && list.Time3 !== null))" class="dataTable"
+                            colspan="10">{{list.Time3}}</td>
+                        <td *ngIf="((list.Time3 !== list.Time2) && (list.Time3 === list.Time4) && (list.Time3 === list.Time5) && (list.Time3 === list.Time6) && (list.Time3 === list.Time7)
+              && (list.Time3 === list.Time8) && (list.Time3 === list.Time9) && (list.Time3 === list.Time10) && (list.Time3 === list.Time11) && (list.Time3 === list.Time12)
+              && (list.Time3 !== list.Time13) && (list.Time3 != '' && list.Time3 !== null))" class="dataTable"
+                            colspan="10">{{list.Time3}}</td>
+                        <td *ngIf="((list.Time3 !== list.Time2) && (list.Time3 === list.Time4) && (list.Time3 === list.Time5) && (list.Time3 === list.Time6) && (list.Time3 === list.Time7)
+              && (list.Time3 === list.Time8) && (list.Time3 === list.Time9) && (list.Time3 === list.Time10) && (list.Time3 === list.Time11) && (list.Time3 === list.Time12)
+              && (list.Time3 === list.Time13) && (list.Time3 != '' && list.Time3 !== null))" class="dataTable"
+                            colspan="11">{{list.Time3}}</td>
+
+                        <td *ngIf="list.Time4 == '' || !list.Time4" class="nondataTable">{{list.Time4}}</td>
+                        <td *ngIf="((list.Time4 !== list.Time3) && (list.Time4 !== list.Time5) && (list.Time4 != '' && list.Time4 !== null))"
+                            class="dataTable">{{list.Time4}}</td>
+                        <td *ngIf="((list.Time4 !== list.Time3) && (list.Time4 === list.Time5) && (list.Time4 !== list.Time6) && (list.Time4 != '' && list.Time4 !== null))"
+                            class="dataTable" colspan="2">{{list.Time4}}</td>
+                        <td *ngIf="((list.Time4 !== list.Time3) && (list.Time4 === list.Time5) && (list.Time4 === list.Time6) && (list.Time4 !== list.Time7) && (list.Time4 != '' && list.Time4 !== null))"
+                            class="dataTable" colspan="3">{{list.Time4}}</td>
+                        <td *ngIf="((list.Time4 !== list.Time3) && (list.Time4 === list.Time5) && (list.Time4 === list.Time6) && (list.Time4 === list.Time7) && (list.Time4 !== list.Time8) && (list.Time4 != '' && list.Time4 !== null))"
+                            class="dataTable" colspan="4">{{list.Time4}}</td>
+                        <td *ngIf="((list.Time4 !== list.Time3) && (list.Time4 === list.Time5) && (list.Time4 === list.Time6) && (list.Time4 === list.Time7) && (list.Time4 === list.Time8)
+              && (list.Time4 !== list.Time9) && (list.Time4 != '' && list.Time4 !== null))" class="dataTable"
+                            colspan="5">{{list.Time4}}</td>
+                        <td *ngIf="((list.Time4 !== list.Time3) && (list.Time4 === list.Time5) && (list.Time4 === list.Time6) && (list.Time4 === list.Time7) && (list.Time4 === list.Time8)
+              && (list.Time4 === list.Time9) && (list.Time4 !== list.Time10) && (list.Time4 != '' && list.Time4 !== null))"
+                            class="dataTable" colspan="6">{{list.Time4}}</td>
+                        <td *ngIf="((list.Time4 !== list.Time3) && (list.Time4 === list.Time5) && (list.Time4 === list.Time6) && (list.Time4 === list.Time7) && (list.Time4 === list.Time8)
+              && (list.Time4 === list.Time9) && (list.Time4 === list.Time10) && (list.Time4 !== list.Time11) && (list.Time4 != '' && list.Time4 !== null))"
+                            class="dataTable" colspan="7">{{list.Time4}}</td>
+                        <td *ngIf="((list.Time4 !== list.Time3) && (list.Time4 === list.Time5) && (list.Time4 === list.Time6) && (list.Time4 === list.Time7) && (list.Time4 === list.Time8)
+              && (list.Time4 === list.Time9) && (list.Time4 === list.Time10) && (list.Time4 === list.Time11) && (list.Time4 !== list.Time12) && (list.Time4 != '' && list.Time4 !== null))"
+                            class="dataTable" colspan="8">{{list.Time4}}</td>
+                        <td *ngIf="((list.Time4 !== list.Time3) && (list.Time4 === list.Time5) && (list.Time4 === list.Time6) && (list.Time4 === list.Time7) && (list.Time4 === list.Time8)
+              && (list.Time4 === list.Time9) && (list.Time4 === list.Time10) && (list.Time4 === list.Time11) && (list.Time4 === list.Time12) && (list.Time4 !== list.Time13) && (list.Time4 != '' && list.Time4 !== null))"
+                            class="dataTable" colspan="9">{{list.Time4}}</td>
+                        <td *ngIf="((list.Time4 !== list.Time3) && (list.Time4 === list.Time5) && (list.Time4 === list.Time6) && (list.Time4 === list.Time7) && (list.Time4 === list.Time8)
+              && (list.Time4 === list.Time9) && (list.Time4 === list.Time10) && (list.Time4 === list.Time11) && (list.Time4 === list.Time12) && (list.Time4 === list.Time13) && (list.Time4 != '' && list.Time4 !== null))"
+                            class="dataTable" colspan="10">{{list.Time4}}</td>
+
+                        <td *ngIf="list.Time5 == '' || !list.Time5" class="nondataTable">{{list.Time5}}</td>
+                        <td *ngIf="((list.Time5 !== list.Time4) && (list.Time5 !== list.Time6) && (list.Time5 != '' && list.Time5 !== null))"
+                            class="dataTable">{{list.Time5}}</td>
+                        <td *ngIf="((list.Time5 !== list.Time4) && (list.Time5 === list.Time6) && (list.Time5 !== list.Time7) && (list.Time5 != '' && list.Time5 !== null))"
+                            class="dataTable" colspan="2">{{list.Time5}}</td>
+                        <td *ngIf="((list.Time5 !== list.Time4) && (list.Time5 === list.Time6) && (list.Time5 === list.Time7) && (list.Time5 !== list.Time8) && (list.Time5 != '' && list.Time5 !== null))"
+                            class="dataTable" colspan="3">{{list.Time5}}</td>
+                        <td *ngIf="((list.Time5 !== list.Time4) && (list.Time5 === list.Time6) && (list.Time5 === list.Time7) && (list.Time5 === list.Time8) && (list.Time5 !== list.Time9) && (list.Time5 != '' && list.Time5 !== null))"
+                            class="dataTable" colspan="4">{{list.Time5}}</td>
+                        <td *ngIf="((list.Time5 !== list.Time4) && (list.Time5 === list.Time6) && (list.Time5 === list.Time7) && (list.Time5 === list.Time8) && (list.Time5 === list.Time9)
+              && (list.Time5 !== list.Time10) && (list.Time5 != '' && list.Time5 !== null))" class="dataTable"
+                            colspan="5">{{list.Time5}}</td>
+                        <td *ngIf="((list.Time5 !== list.Time4) && (list.Time5 === list.Time6) && (list.Time5 === list.Time7) && (list.Time5 === list.Time8) && (list.Time5 === list.Time9)
+              && (list.Time5 === list.Time10) && (list.Time5 !== list.Time11) && (list.Time5 != '' && list.Time5 !== null))"
+                            class="dataTable" colspan="6">{{list.Time5}}</td>
+                        <td *ngIf="((list.Time5 !== list.Time4) && (list.Time5 === list.Time6) && (list.Time5 === list.Time7) && (list.Time5 === list.Time8) && (list.Time5 === list.Time9)
+              && (list.Time5 === list.Time10) && (list.Time5 === list.Time11) && (list.Time5 !== list.Time12) && (list.Time5 != '' && list.Time5 !== null))"
+                            class="dataTable" colspan="7">{{list.Time5}}</td>
+                        <td *ngIf="((list.Time5 !== list.Time4) && (list.Time5 === list.Time6) && (list.Time5 === list.Time7) && (list.Time5 === list.Time8) && (list.Time5 === list.Time9)
+              && (list.Time5 === list.Time10) && (list.Time5 === list.Time11) && (list.Time5 === list.Time12) && (list.Time5 !== list.Time13) && (list.Time5 != '' && list.Time5 !== null))"
+                            class="dataTable" colspan="8">{{list.Time5}}</td>
+                        <td *ngIf="((list.Time5 !== list.Time4) && (list.Time5 === list.Time6) && (list.Time5 === list.Time7) && (list.Time5 === list.Time8) && (list.Time5 === list.Time9)
+              && (list.Time5 === list.Time10) && (list.Time5 === list.Time11) && (list.Time5 === list.Time12) && (list.Time5 === list.Time13) && (list.Time5 != '' && list.Time5 !== null))"
+                            class="dataTable" colspan="9">{{list.Time5}}</td>
+
+                        <td *ngIf="list.Time6 == '' || !list.Time6" class="nondataTable">{{list.Time6}}</td>
+                        <td *ngIf="((list.Time6 !== list.Time5) && (list.Time6 !== list.Time7) && (list.Time6 != '' && list.Time6 !== null)) "
+                            class="dataTable">{{list.Time6}}</td>
+                        <td *ngIf="((list.Time6 !== list.Time5) && (list.Time6 === list.Time7) && (list.Time6 !== list.Time8) && (list.Time6 != '' && list.Time6 !== null)) "
+                            class="dataTable" colspan="2">{{list.Time6}}</td>
+                        <td *ngIf="((list.Time6 !== list.Time5) && (list.Time6 === list.Time7) && (list.Time6 === list.Time8) && (list.Time6 !== list.Time9) && (list.Time6 != '' && list.Time6 !== null)) "
+                            class="dataTable" colspan="3">{{list.Time6}}</td>
+                        <td *ngIf="((list.Time6 !== list.Time5) && (list.Time6 === list.Time7) && (list.Time6 === list.Time8) && (list.Time6 === list.Time9) && (list.Time6 !== list.Time10) && (list.Time6 != '' && list.Time6 !== null)) "
+                            class="dataTable" colspan="4">{{list.Time6}}</td>
+                        <td *ngIf="((list.Time6 !== list.Time5) && (list.Time6 === list.Time7) && (list.Time6 === list.Time8) && (list.Time6 === list.Time9) && (list.Time6 === list.Time10) && (list.Time6 !== list.Time11) && (list.Time6 != '' && list.Time6 !== null)) "
+                            class="dataTable" colspan="5">{{list.Time6}}</td>
+                        <td *ngIf="((list.Time6 !== list.Time5) && (list.Time6 === list.Time7) && (list.Time6 === list.Time8) && (list.Time6 === list.Time9) && (list.Time6 === list.Time10) && (list.Time6 === list.Time11) && (list.Time6 !== list.Time12) && (list.Time6 != '' && list.Time6 !== null)) "
+                            class="dataTable" colspan="6">{{list.Time6}}</td>
+                        <td *ngIf="((list.Time6 !== list.Time5) && (list.Time6 === list.Time7) && (list.Time6 === list.Time8) && (list.Time6 === list.Time9) && (list.Time6 === list.Time10) && (list.Time6 === list.Time11) && (list.Time6 === list.Time12) && (list.Time6 !== list.Time13) && (list.Time6 != '' && list.Time6 !== null)) "
+                            class="dataTable" colspan="7">{{list.Time6}}</td>
+                        <td *ngIf="((list.Time6 !== list.Time5) && (list.Time6 === list.Time7) && (list.Time6 === list.Time8) && (list.Time6 === list.Time9) && (list.Time6 === list.Time10) && (list.Time6 === list.Time11) && (list.Time6 === list.Time12) && (list.Time6 === list.Time13) && (list.Time6 != '' && list.Time6 !== null)) "
+                            class="dataTable" colspan="8">{{list.Time6}}</td>
+
+                        <td *ngIf="list.Time7 == '' || !list.Time7" class="nondataTable">{{list.Time7}}</td>
+                        <td *ngIf="((list.Time7 !== list.Time6) && (list.Time7 !== list.Time8) && (list.Time7 != '' && list.Time7 !== null)) "
+                            class="dataTable">{{list.Time7}}</td>
+                        <td *ngIf="((list.Time7 !== list.Time6) && (list.Time7 === list.Time8) && (list.Time7 !== list.Time9) && (list.Time7 != '' && list.Time7 !== null)) "
+                            class="dataTable" colspan="2">{{list.Time7}}</td>
+                        <td *ngIf="((list.Time7 !== list.Time6) && (list.Time7 === list.Time8) && (list.Time7 === list.Time9) && (list.Time7 !== list.Time10) && (list.Time7 != '' && list.Time7 !== null)) "
+                            class="dataTable" colspan="3">{{list.Time7}}</td>
+                        <td *ngIf="((list.Time7 !== list.Time6) && (list.Time7 === list.Time8) && (list.Time7 === list.Time9) && (list.Time7 === list.Time10) && (list.Time7 !== list.Time11) && (list.Time7 != '' && list.Time7 !== null)) "
+                            class="dataTable" colspan="4">{{list.Time7}}</td>
+                        <td *ngIf="((list.Time7 !== list.Time6) && (list.Time7 === list.Time8) && (list.Time7 === list.Time9) && (list.Time7 === list.Time10) && (list.Time7 === list.Time11) && (list.Time7 !== list.Time12) && (list.Time7 != '' && list.Time7 !== null)) "
+                            class="dataTable" colspan="5">{{list.Time7}}</td>
+                        <td *ngIf="((list.Time7 !== list.Time6) && (list.Time7 === list.Time8) && (list.Time7 === list.Time9) && (list.Time7 === list.Time10) && (list.Time7 === list.Time11) && (list.Time7 === list.Time12) && (list.Time7 !== list.Time13) && (list.Time7 != '' && list.Time7 !== null)) "
+                            class="dataTable" colspan="6">{{list.Time7}}</td>
+                        <td *ngIf="((list.Time7 !== list.Time6) && (list.Time7 === list.Time8) && (list.Time7 === list.Time9) && (list.Time7 === list.Time10) && (list.Time7 === list.Time11) && (list.Time7 === list.Time12) && (list.Time7 === list.Time13) && (list.Time7 != '' && list.Time7 !== null)) "
+                            class="dataTable" colspan="7">{{list.Time7}}</td>
+
+                        <td *ngIf="list.Time8 == '' || !list.Time8" class="nondataTable">{{list.Time8}}</td>
+                        <td *ngIf="((list.Time8 !== list.Time7) && (list.Time8 !== list.Time9) && (list.Time8 != '' && list.Time8 !== null)) "
+                            class="dataTable">{{list.Time8}}</td>
+                        <td *ngIf="((list.Time8 !== list.Time7) && (list.Time8 === list.Time9) && (list.Time8 !== list.Time10) && (list.Time8 != '' && list.Time8 !== null)) "
+                            class="dataTable" colspan="2">{{list.Time8}}</td>
+                        <td *ngIf="((list.Time8 !== list.Time7) && (list.Time8 === list.Time9) && (list.Time8 === list.Time10) && (list.Time8 !== list.Time11) && (list.Time8 != '' && list.Time8 !== null)) "
+                            class="dataTable" colspan="3">{{list.Time8}}</td>
+                        <td *ngIf="((list.Time8 !== list.Time7) && (list.Time8 === list.Time9) && (list.Time8 === list.Time10) && (list.Time8 === list.Time11) && (list.Time8 !== list.Time12) && (list.Time8 != '' && list.Time8 !== null)) "
+                            class="dataTable" colspan="4">{{list.Time8}}</td>
+                        <td *ngIf="((list.Time8 !== list.Time7) && (list.Time8 === list.Time9) && (list.Time8 === list.Time10) && (list.Time8 === list.Time11) && (list.Time8 === list.Time12) && (list.Time8 !== list.Time13) && (list.Time8 != '' && list.Time8 !== null)) "
+                            class="dataTable" colspan="5">{{list.Time8}}</td>
+                        <td *ngIf="((list.Time8 !== list.Time7) && (list.Time8 === list.Time9) && (list.Time8 === list.Time10) && (list.Time8 === list.Time11) && (list.Time8 === list.Time12) && (list.Time8 === list.Time13) && (list.Time8 != '' && list.Time8 !== null)) "
+                            class="dataTable" colspan="6">{{list.Time8}}</td>
+
+                        <td *ngIf="list.Time9 =='' || !list.Time9" class="nondataTable">{{list.Time9}}</td>
+                        <td *ngIf="((list.Time9 !== list.Time8) && (list.Time9 !== list.Time10) && (list.Time9 != '' && list.Time9 !== null)) "
+                            class="dataTable">{{list.Time9}}</td>
+                        <td *ngIf="((list.Time9 !== list.Time8) && (list.Time9 === list.Time10) && (list.Time9 !== list.Time11) && (list.Time9 != '' && list.Time9 !== null)) "
+                            class="dataTable" colspan="2">{{list.Time9}}</td>
+                        <td *ngIf="((list.Time9 !== list.Time8) && (list.Time9 === list.Time10) && (list.Time9 === list.Time11) && (list.Time9 !== list.Time12) && (list.Time9 != '' && list.Time9 !== null)) "
+                            class="dataTable" colspan="3">{{list.Time9}}</td>
+                        <td *ngIf="((list.Time9 !== list.Time8) && (list.Time9 === list.Time10) && (list.Time9 === list.Time11) && (list.Time9 === list.Time12) && (list.Time9 !== list.Time13) && (list.Time9 != '' && list.Time9 !== null)) "
+                            class="dataTable" colspan="4">{{list.Time9}}</td>
+                        <td *ngIf="((list.Time9 !== list.Time8) && (list.Time9 === list.Time10) && (list.Time9 === list.Time11) && (list.Time9 === list.Time12) && (list.Time9 === list.Time13) && (list.Time9 != '' && list.Time9 !== null)) "
+                            class="dataTable" colspan="5">{{list.Time9}}</td>
+
+                        <td *ngIf="list.Time10 == '' || !list.Time10" class="nondataTable">{{list.Time10}}</td>
+                        <td *ngIf="((list.Time10 !== list.Time9) && (list.Time10 !== list.Time11) && (list.Time10 != '' && list.Time10 !== null)) "
+                            class="dataTable">{{list.Time10}}</td>
+                        <td *ngIf="((list.Time10 !== list.Time9) && (list.Time10 === list.Time11) && (list.Time10 !== list.Time12) && (list.Time10 != '' && list.Time10 !== null)) "
+                            class="dataTable" colspan="2">{{list.Time10}}</td>
+                        <td *ngIf="((list.Time10 !== list.Time9) && (list.Time10 === list.Time11) && (list.Time10 === list.Time12) && (list.Time10 !== list.Time13) && (list.Time10 != '' && list.Time10 !== null)) "
+                            class="dataTable" colspan="3">{{list.Time10}}</td>
+                        <td *ngIf="((list.Time10 !== list.Time9) && (list.Time10 === list.Time11) && (list.Time10 === list.Time12) && (list.Time10 === list.Time13) && (list.Time10 != '' && list.Time10 !== null)) "
+                            class="dataTable" colspan="4">{{list.Time10}}</td>
+
+                        <td *ngIf="list.Time11 == '' || !list.Time11" class="nondataTable">{{list.Time11}}</td>
+                        <td *ngIf="((list.Time11 !== list.Time10) && (list.Time11 !== list.Time12) && (list.Time11 != '' && list.Time11 !== null)) "
+                            class="dataTable">{{list.Time11}}</td>
+                        <td *ngIf="((list.Time11 !== list.Time10) && (list.Time11 === list.Time12) && (list.Time11 !== list.Time13) && (list.Time11 != '' && list.Time11 !== null)) "
+                            class="dataTable" colspan="2">{{list.Time11}}</td>
+                        <td *ngIf="((list.Time11 !== list.Time10) && (list.Time11 === list.Time12) && (list.Time11 === list.Time13) && (list.Time11 != '' && list.Time11 !== null)) "
+                            class="dataTable" colspan="3">{{list.Time11}}</td>
+
+                        <td *ngIf="list.Time12 == '' || !list.Time12" class="nondataTable">{{list.Time12}}</td>
+                        <td *ngIf="((list.Time12 !== list.Time11) && (list.Time12 !== list.Time13) && (list.Time12 != '' && list.Time12 !== null)) "
+                            class="dataTable">{{list.Time12}}</td>
+                        <td *ngIf="((list.Time12 !== list.Time11) && (list.Time12 === list.Time13)  && (list.Time12 != '' && list.Time12 !== null)) "
+                            class="dataTable" colspan="2">{{list.Time12}}</td>
+
+                        <td *ngIf="list.Time13 == '' || !list.Time13" class="nondataTable">{{list.Time13}}</td>
+                        <td *ngIf="((list.Time13 !== list.Time12) && (list.Time13 != '' && list.Time13 !== null)) "
+                            class="dataTable">{{list.Time13}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -192,37 +331,22 @@
 
 
         </div>
-        <div class="col-md-4">
-            <div>
-                <form>
+        <div class="col-md-3">
+            <div style="margin-top: 125px;">
+
+
+                <form class="uploadForm shadow">
                     <h3 style="margin-top: 10px;">อัพโหลดไฟล์รายวิชา</h3>
                     <div class="form-group">
-                        <br>
-                        <mat-form-field>
-                            <mat-label>ปีการศึกษา</mat-label>
-                            <mat-select>
-                                <mat-option value="2556">2556</mat-option>
-                                <mat-option value="2557">2557</mat-option>
-                                <mat-option value="2558">2558</mat-option>
-                                <mat-option value="2559">2559</mat-option>
-                                <mat-option value="2560">2560</mat-option>
-                                <mat-option value="2561">2561</mat-option>
-                            </mat-select>
-                        </mat-form-field>
-                        &nbsp;
-                        <mat-form-field>
-                            <mat-label>เทอม</mat-label>
-                            <mat-select>
-                                <mat-option value="1">1</mat-option>
-                                <mat-option value="2">2</mat-option>
-                            </mat-select>
-                        </mat-form-field>
+
                         <br>
                         <label for="exampleFormControlFile1">Import File .CSV</label>
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                        <input #csvData type="file" accept=".csv" (change)="onCSV()" class="form-control-file"
+                            id="exampleFormControlFile1">
                     </div>
 
-                    <button type="button" class="btn btn-info">อัพโหลด</button>
+                    <button (click)="onAddFile()" type="button" class="btn btn-info shadow"
+                        style="border-radius: 20px;">อัพโหลด</button>
                 </form>
             </div>
         </div>

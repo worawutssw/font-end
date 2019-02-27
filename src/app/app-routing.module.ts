@@ -9,6 +9,8 @@ import { ManagehardwareComponent } from './login/admin/managehardware/managehard
 import { ManagerooomComponent } from './login/admin/managerooom/managerooom.component';
 import { SystemreportComponent } from './login/admin/systemreport/systemreport.component';
 import { HomeComponent } from './login/admin/home/home.component';
+import { ManagememberComponent } from './login/admin/managemember/managemember.component';
+
 
 const routes: Routes = [
   {
@@ -42,6 +44,10 @@ const routes: Routes = [
       {
         path: 'home',
         component: HomeComponent
+      },
+      {
+        path: 'managemember',
+        component: ManagememberComponent
       }
     ]
   },

@@ -25,6 +25,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { PapaParseModule } from 'ngx-papaparse';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
+import { nebularModule } from './nebular';
+import { ManagememberComponent } from './login/admin/managemember/managemember.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ManagehardwareComponent,
     ManagerooomComponent,
     SystemreportComponent,
-    HomeComponent
+    HomeComponent,
+    ManagememberComponent
   ],
   imports: [
     PapaParseModule,
@@ -58,9 +62,12 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    nebularModule,
     ngxBoostarpModule,
     Ng2SearchPipeModule,
-    NgxWebstorageModule.forRoot()
+    NgxWebstorageModule.forRoot(),
+    // NbThemeModule.forRoot({ name: 'default' }),
+    NbLayoutModule
   ],
   providers: [AuthenticationService],
   bootstrap: [AppComponent]
