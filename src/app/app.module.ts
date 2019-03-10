@@ -28,6 +28,14 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
 import { nebularModule } from './nebular';
 import { ManagememberComponent } from './login/admin/managemember/managemember.component';
+import { TabsModule, BsDatepickerModule, DatepickerModule } from 'ngx-bootstrap';
+import { UsingChairComponent } from './login/admin/systemreport/using-chair/using-chair.component';
+import { HistoryComponent } from './login/admin/systemreport/history/history.component';
+import { ConnectComponent } from './login/admin/systemreport/connect/connect.component';
+import { HisdayComponent } from './login/admin/systemreport/history/hisday/hisday.component';
+import { HisweekComponent } from './login/admin/systemreport/history/hisweek/hisweek.component';
+import { HismonthComponent } from './login/admin/systemreport/history/hismonth/hismonth.component';
+import { HistermComponent } from './login/admin/systemreport/history/histerm/histerm.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +49,14 @@ import { ManagememberComponent } from './login/admin/managemember/managemember.c
     ManagerooomComponent,
     SystemreportComponent,
     HomeComponent,
-    ManagememberComponent
+    ManagememberComponent,
+    UsingChairComponent,
+    HistoryComponent,
+    ConnectComponent,
+    HisdayComponent,
+    HisweekComponent,
+    HismonthComponent,
+    HistermComponent
   ],
   imports: [
     PapaParseModule,
@@ -56,6 +71,7 @@ import { ManagememberComponent } from './login/admin/managemember/managemember.c
     AppRoutingModule,
     MaterialModule,
     ModalModule.forRoot(),
+    TabsModule.forRoot(),
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
@@ -67,9 +83,13 @@ import { ManagememberComponent } from './login/admin/managemember/managemember.c
     Ng2SearchPipeModule,
     NgxWebstorageModule.forRoot(),
     // NbThemeModule.forRoot({ name: 'default' }),
-    NbLayoutModule
+    NbLayoutModule,
+    BsDatepickerModule.forRoot(),
+    DatepickerModule.forRoot()
   ],
+  entryComponents:[HisdayComponent],
   providers: [AuthenticationService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

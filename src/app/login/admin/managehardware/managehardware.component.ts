@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { LoginserviceService } from 'src/app/sevice/loginservice.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
 import { timer } from 'rxjs';
 import { take, count } from 'rxjs/operators';
 
@@ -16,11 +15,8 @@ export class ManagehardwareComponent implements OnInit {
 
   public AddHardware = new FormGroup({
     hardwareid: new FormControl,
-    hardwarename: new FormControl
-    // hardwarebatt: new FormControl,
-    // hardwarerfid :new FormControl,
-    // hardwarestatus : new FormControl,
-    // harewaresit:new FormControl  
+    hardwarename: new FormControl,
+    roomid: new FormControl 
   })
 
   public UpdateHardware = new FormGroup({
@@ -28,6 +24,7 @@ export class ManagehardwareComponent implements OnInit {
     updatehardwarename: new FormControl
 
   })
+
 
 
   listhardware;
@@ -152,6 +149,7 @@ export class ManagehardwareComponent implements OnInit {
       }
     )
 
+    
 
   }
 

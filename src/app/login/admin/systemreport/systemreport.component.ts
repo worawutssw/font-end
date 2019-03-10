@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./systemreport.component.css']
 })
 export class SystemreportComponent implements OnInit {
-
+  uncheckableRadioModel = 'Middle';
   constructor() { }
 
   ngOnInit() {
   }
+
+  
 
 }

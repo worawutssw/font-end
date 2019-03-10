@@ -3,6 +3,7 @@
    
  
     <!-- <nav class="navbar navbar-light shadows " style="background-color: rgb(69, 77, 82) "> -->
+        <!-- <nav class="navbar navbar-light shadows" style="background-color: #e3f2fd;"> -->
         <nav class="navbar navbar-dark bg-dark shadows">
 
       <div class="home">
@@ -11,8 +12,14 @@
         <a routerLink="/admin/manageuser"><i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp;ข้อมูลนักศึกษา</a>&nbsp;&nbsp;&nbsp;
         <a routerLink="/admin/managehardware"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;จัดการอุปกรณ์</a>&nbsp;&nbsp;&nbsp;
         <a routerLink="/admin/manageroom"><i class="fa fa-university"  aria-hidden="true"></i>&nbsp;จัดการห้องเรียน</a>&nbsp;&nbsp;&nbsp;
-        <a routerLink="/admin/managemember"><i class="fa fa-user-plus"  aria-hidden="true"></i>&nbsp;จัดการผู้ใช้งาน</a>&nbsp;&nbsp;&nbsp;
-        <a routerLink="/admin/systemreport"><i class="fa fa-wrench" aria-hidden="true"></i>&nbsp;รายงานระบบ</a>
+        <a routerLink="/admin/managemember"><i class="fa fa-user-plus"  aria-hidden="true"></i>&nbsp;จัดการผู้ใช้งาน</a>&nbsp;
+        <!-- <a routerLink="/admin/systemreport"><i class="fa fa-wrench" aria-hidden="true"></i>&nbsp;รายงานระบบ</a> -->
+
+        <button mat-button [matMenuTriggerFor]="menu" class="fa fa-wrench"> &nbsp;รายงานระบบ</button>
+        <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/admin/systemreport/using_chair">การใช้งานเก้าอี้</button>
+        <button mat-menu-item routerLink="/admin/systemreport/history">ประวัติการเข้าใช้งาน</button>
+        </mat-menu>
 
       </div>
       <div class="logout">

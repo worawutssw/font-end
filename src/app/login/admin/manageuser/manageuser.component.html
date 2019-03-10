@@ -28,7 +28,7 @@
             </div>
             &nbsp;&nbsp;
             <table class="table table-bordered shadow">
-                <thead>
+                <thead class="thead-light">
                     <tr>
                         <th scope="col">รหัสนักศึกษา</th>
                         <th scope="col">ชื่อ</th>
@@ -45,8 +45,8 @@
                         <td>{{list.lastname}}</td>
                         <td>{{list.rfid}}</td>
                         <td>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-pencil" (click)="updatestd(list,editstd)"
-                                aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <i class="fa fa-trash-o" (click)="deleteSTD(list.student_id,deletestd) " aria-hidden="true"></i></td>
+                                aria-hidden="true" style="color: rgb(255, 136, 0)"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <i class="fa fa-trash-o" (click)="deleteSTD(list.student_id,deletestd) " aria-hidden="true" style="color: rgb(255, 0, 0)"></i></td>
                     </tr>
                 </tbody>
             </table>

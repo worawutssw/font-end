@@ -12,7 +12,7 @@
                 <div class="col-md-5">
                         <br><br>
                         <table class="table table-bordered shadow">
-                                <thead>
+                                <thead class="thead-light">
                                         <tr>
                                                 <th scope="col">หมายเลขห้อง</th>
                                                 <th scope="col">ชื่อห้อง</th>
@@ -25,9 +25,9 @@
                                                 <td>{{list.roomname}}</td>
                                                 <td>&nbsp;&nbsp;&nbsp;&nbsp;
                                                         <i class="fa fa-pencil" (click)="updateRoom(list,editroom)"
-                                                                aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                aria-hidden="true" style="color: rgb(255, 136, 0)" ></i>&nbsp;&nbsp;&nbsp;&nbsp;
                                                         <i class="fa fa-trash-o" (click)="deleteRoom(list.roomid,deletroom)"
-                                                                aria-hidden="true"></i></td>
+                                                                aria-hidden="true" style="color: rgb(255, 0, 0)"></i></td>
                                                 
                                         </tr>
 

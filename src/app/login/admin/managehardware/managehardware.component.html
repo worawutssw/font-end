@@ -13,7 +13,7 @@
                 <div class="col-md-10">
                         <br><br>
                         <table class="table table-bordered shadow">
-                                <thead>
+                                <thead class="thead-light">
                                         <tr>
                                                 <th scope="col">หมายเลขอุปกรณ์</th>
                                                 <th scope="col">ชื่ออุปกรณ์</th>
@@ -21,6 +21,7 @@
                                                 <!-- <th scope="col">รหัสRFIDคนนั่ง</th> -->
                                                 <th scope="col" style="width: 150px">สถานะอุปกรณ์</th>
                                                 <th scope="col">สถานะการณ์นั่ง</th>
+                                                <th scope="col">หมายเลขห้อง</th>
                                                 <th scope="col">&nbsp;&nbsp;แก้ใข/ลบ</th>
 
                                 </thead>
@@ -58,13 +59,15 @@
                                                         style="margin-left: 20%;margin-top: 5px">Disconnect</td>
                                                 <td *ngIf="list.hardwaresit == 1">มีผู้ใช้งาน</td>
                                                 <td *ngIf="list.hardwaresit == 0">ไม่มีผู้ใช้งาน</td>
+                                                <td>{{list.roomid}}</td>
                                                 <td>&nbsp;&nbsp;&nbsp;&nbsp;
+
                                                         <i class="fa fa-pencil"
                                                                 (click)="updatehardware(list,edithardware)"
-                                                                aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                aria-hidden="true" style="color: rgb(255, 136, 0)"></i>&nbsp;&nbsp;&nbsp;&nbsp;
                                                         <i class="fa fa-trash-o"
                                                                 (click)="deleteHardware(list.hardwareid,deletehardware)"
-                                                                aria-hidden="true"></i></td>
+                                                                aria-hidden="true" style="color: rgb(255, 0, 0)"></i></td>
 
 
                                         </tr>
@@ -105,6 +108,9 @@
                                         <input matInput placeholder="ชื่ออุปกรณ์" formControlName="hardwarename">
                                 </mat-form-field>
                                 <br>
+                                <mat-form-field class="infrom">
+                                        <input matInput placeholder="หมายเลขห้อง" formControlName="roomid">
+                                </mat-form-field>
 
                         </div>
 

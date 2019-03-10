@@ -1,6 +1,196 @@
 <mat-toolbar>
   <div class="toolbarst">
-          จัดการผู้ใช้งาน
-
+    จัดการผู้ใช้งาน
   </div>
 </mat-toolbar>
+
+<div class="container-fluid">
+
+
+  <div class="row">
+    <!-- <div class="col-md-1"></div> -->
+    <div class="col-md">
+      <br><br>
+      <table class="table table-bordered shadow">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">รหัสผู้ใช้งาน</th>
+            <th scope="col">รหัสผ่าน</th>
+            <th scope="col">ชื่อ</th>
+            <th scope="col">นามสกุล</th>
+            <th scope="col">สถานะผู้ใช้งาน</th>
+            <th scope="col">&nbsp;&nbsp;แก้ใข/ลบ</th>
+        </thead>
+        <tbody *ngFor="let list of listmember | filter:name">
+          <tr>
+
+            <td>{{list.adminid}}</td>
+            <td>{{list.adminpw}}</td>
+            <td>{{list.FName}}</td>
+            <td>{{list.LName}}</td>
+            <td>{{list.Status}}</td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;
+              <i class="fa fa-pencil" (click)="updateMember(list,editmember)"
+                aria-hidden="true" style="color: rgb(255, 136, 0)"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+              <i class="fa fa-trash-o" (click)="deleteMember(list.adminid,deleteMemberFn)" aria-hidden="true" style="color: rgb(255, 0, 0)" ></i></td>
+
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+
+    <div class="col-md-2">
+      <br><br><br>
+      <div><button type="button" (click)="openModal(addmember)" class="btn btn-info btsize">เพิ่มสมาชิก</button>
+      </div>
+    </div>
+
+
+  </div>
+
+
+</div>
+
+
+
+
+<!-- addmember -->
+<ng-template #addmember let-modal>
+  <form class="animation " [formGroup]="membergroup" (ngSubmit)="addmemberfn()">
+
+    <div class="container ">
+      <br>
+      <h3>เพิ่มสมาชิก</h3>
+      <div class="example-container ">
+        <mat-form-field class="infrom">
+          <input matInput placeholder="รหัสผู้ใช้งาน" formControlName="adminid">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="infrom">
+          <input matInput placeholder="รหัสผ่าน" [type]="hide ? 'password' : 'text'" formControlName="adminpw">
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="infrom">
+          <input matInput placeholder="ขื่อ" formControlName="FName">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="infrom">
+          <input matInput placeholder="นามสกุล" formControlName="LName">
+        </mat-form-field>
+        <br>
+
+        <!-- <section class="example-section">
+          <label class="example-margin">สถานะผู้ใช้งาน:</label>
+          <mat-radio-group formControlName="Status">
+            <mat-radio-button class="example-margin" value="admin">Admin</mat-radio-button>
+            <mat-radio-button class="example-margin" value="teacher">Teacher</mat-radio-button>
+          </mat-radio-group>
+        </section> -->
+
+        <mat-form-field>
+          <mat-label>สถานะผู้ใช้งาน</mat-label>
+          <select matNativeControl formControlName="Status" id="mySelectId">
+            <option value="" disabled selected></option>
+            <option value="admin">Admin</option>
+            <option value="teacher">Teacher</option>
+          </select>
+        </mat-form-field>
+
+
+
+        
+
+
+
+
+
+
+
+
+
+        <br>
+        <br>
+      </div>
+
+      <div class="button-row">
+        <button type="submit" mat-raised-button color="primary">ยืนยัน</button>&nbsp;
+        <button mat-raised-button color="warn" (click)="closeModal()">ยกเลิก</button>
+      </div>
+      <br>
+    </div>
+  </form>
+</ng-template>
+
+<!-- delete -->
+<ng-template #deleteMemberFn let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">คุณแน่ใจ?</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>ว่าคุณต้องลบบัญชีผู้ใช้นี้!!</p>
+  </div>
+  <div class="modal-footer">
+    <button mat-raised-button color="warn" (click)="modal.close('Close click')">ไม่</button>
+    <button mat-raised-button color="primary" (click)="deletememberConfirm()">ใช่</button>
+  </div>
+</ng-template>
+
+<!-- edit -->
+<ng-template #editmember let-modal>
+  <form class="animation" [formGroup]="updatememberGroup" (ngSubmit)="edit()">
+    <br>
+    <div class="container">
+      <h3>แก้ไขข้อมูล</h3>
+      <div class="example-container">
+        <fieldset disabled="disabled">
+          <mat-form-field class="infrom">
+            <input matInput placeholder="รหัสผู้ใช้งาน" formControlName="update_adminid" [value]="updateadminid"
+              [(ngModel)]="updateadminid">
+          </mat-form-field>
+        </fieldset>
+        <mat-form-field class="infrom">
+          <input matInput placeholder="รหัสผ่าน" formControlName="update_adminpw" [value]="updateadminpw"
+            [(ngModel)]="updateadminpw">
+        </mat-form-field>
+        <mat-form-field class="infrom">
+          <input matInput placeholder="ชื่อ" formControlName="update_Fname" [value]="updateFname"
+            [(ngModel)]="updateFname">
+        </mat-form-field>
+        <mat-form-field class="infrom">
+          <input matInput placeholder="นามสกุล" formControlName="update_LName" [value]="updateLName"
+            [(ngModel)]="updateLName">
+        </mat-form-field>
+        <!-- <section class="example-section">
+          <label class="example-margin">สถานะผู้ใช้งาน:</label>
+          <mat-radio-group formControlName="update_Status">
+            <mat-radio-button class="example-margin" value="admin">Admin</mat-radio-button>
+            <mat-radio-button class="example-margin" value="teacher">Teacher</mat-radio-button>
+          </mat-radio-group>
+        </section> -->
+
+        <mat-form-field class="infrom">
+          <mat-label>สถานะผู้ใช้งาน</mat-label>
+          <select matNativeControl formControlName="update_Status" id="mySelectId">
+            <!-- <option value="" disabled selected></option> -->
+            <option value="admin">Admin</option>
+            <option value="teacher">Teacher</option>
+          </select>
+        </mat-form-field>
+
+      </div>
+
+      <div class="button-row">
+        <button type="submit" mat-raised-button color="primary">ยืนยัน</button>
+        <button mat-raised-button color="warn" (click)="closeModal()">ยกเลิก</button>
+        <br><br>
+      </div>
+
+    </div>
+  </form>
+</ng-template>

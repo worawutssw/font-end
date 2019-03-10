@@ -1,0 +1,26 @@
+<mat-toolbar>
+        <div class="toolbarst">
+                ประวัติการใช้งาน
+    
+        </div>
+    </mat-toolbar>
+
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md">
+        <div class="location">
+            <div class="example-button-row ">
+                <button mat-raised-button color="primary" class="shadow" routerLink="/admin/systemreport/history/hisday">รายวัน</button>
+                <button mat-raised-button color="accent" class="shadow" routerLink="/admin/systemreport/history/hisweek">รายสัปดาห์</button>
+                <button mat-raised-button color="warn" class="shadow" routerLink="/admin/systemreport/history/hismonth">รายเดือน</button>
+                <button type="button" class="btn btn-warning shadow" style="color: white" routerLink="/admin/systemreport/history/histerm" >รายเทอม</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+
+<router-outlet></router-outlet>

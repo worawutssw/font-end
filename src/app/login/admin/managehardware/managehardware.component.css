@@ -9,3 +9,6 @@ width: 100px;
 .button-row a {
   margin-right: 10px;
 }
+i{
+  cursor: pointer;
+}

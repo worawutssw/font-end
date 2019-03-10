@@ -1,0 +1,10 @@
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+  width: 150px;
+  height: 50px;
+}
+.location{
+    padding-left: 25%;
+    /* padding-top: 5px; */
+}

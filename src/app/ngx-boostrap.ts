@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { 
-    ModalModule,
+    ModalModule, TabsModule, BsDatepickerModule,
  } from 'ngx-bootstrap';
 
 @NgModule({
     imports:[
-        ModalModule.forRoot()
+        ModalModule.forRoot(),
+        TabsModule.forRoot(),
+        BsDatepickerModule.forRoot()
     ],
-    exports:[]
+    exports:[
+
+        
+    ]
 })
 export class ngxBoostarpModule{}
