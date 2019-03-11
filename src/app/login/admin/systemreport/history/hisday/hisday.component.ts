@@ -10,7 +10,11 @@ import { LoginserviceService } from 'src/app/sevice/loginservice.service';
 export class HisdayComponent implements OnInit {
   
   public date = new FormControl('');
+  public groups = new FormControl('');
+
   listhisttory;
+  listgroup;
+  
   constructor(
     private service : LoginserviceService
   ) { }
@@ -37,6 +41,10 @@ export class HisdayComponent implements OnInit {
       }
     )
     
+  }
+
+
+  selectgroup(){
   }
 
 

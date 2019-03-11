@@ -10,14 +10,14 @@
 
     <mat-form-field color="accent">
       <mat-label>วันเริ่มต้นที่ต้องการดู</mat-label>
-      <input matInput [matDatepicker]="picker1">
+      <input matInput [matDatepicker]="picker1" [formControl]="startdate">
       <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
       <mat-datepicker #picker1></mat-datepicker>
     </mat-form-field>
     
     <mat-form-field color="accent">
       <mat-label>วันสุดท้ายที่ต้องการดู</mat-label>
-      <input matInput [matDatepicker]="picker2">
+      <input matInput [matDatepicker]="picker2" [formControl]="enddate">
       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
       <mat-datepicker #picker2 color="primary"></mat-datepicker>
     </mat-form-field>
@@ -25,37 +25,43 @@
  
 
     &nbsp;&nbsp;
-    <button type="button" class="btn btn-success">ตกลง</button>
+    <button type="button" class="btn btn-success" (click)="selsctdate()">ตกลง</button>
+    &nbsp;&nbsp;
+    <mat-form-field>
+      <input matInput placeholder="ค้นหา" [(ngModel)]="name">
+    </mat-form-field>
     <br>
     <br>
 
     <table class="table table-bordered shadow">
-        <thead class="thead-light">
-          <tr>
-            <th scope="col">หมายเลขอุปกรณ์</th>
-            <th scope="col">ชื่ออุปกรณ์</th>
-            <th scope="col">หมายเลขห้อง</th>
-            <th scope="col">รหัสนักศึกษา</th>
-            <th scope="col">ชื่อผู้ใข้งาน</th>
-            <th scope="col">นามสกุล</th>
-            <th scope="col">วันที่ใช้งาน</th>
-            <th scope="col">เวลาที่ใช้งาน</th>
-  
-          </tr>
-        </thead>
-        <tbody *ngFor="let list of listhisttory | filter:name">
-          <tr>
-            <td>{{list.hardwareid}}</td>
-            <td>{{list.hardwarename}}</td>
-            <td>{{list.roomid}}</td>
-            <td>{{list.student_id}}</td>
-            <td>{{list.name}}</td>
-            <td>{{list.lastname}}</td>
-            <td>{{list.date}}</td>
-            <td>{{list.time}}</td>
-          </tr>
-        </tbody>
-      </table>
+      <thead >
+        <tr>
+          <th scope="col">หมายเลขอุปกรณ์</th>
+          <th scope="col">ชื่ออุปกรณ์</th>
+          <th scope="col">หมายเลขห้อง</th>
+          <th scope="col">รหัสนักศึกษา</th>
+          <th scope="col">ชื่อผู้ใข้งาน</th>
+          <th scope="col">นามสกุล</th>
+          <th scope="col">กลุ่มเรียน</th>
+          <th scope="col">วันที่ใช้งาน</th>
+          <th scope="col">เวลาที่ใช้งาน</th>
+
+        </tr>
+      </thead>
+      <tbody *ngFor="let list of listhisttory | filter:name">
+        <tr>
+          <td>{{list.hardwareid}}</td>
+          <td>{{list.hardwarename}}</td>
+          <td>{{list.roomid}}</td>
+          <td>{{list.student_id}}</td>
+          <td>{{list.name}}</td>
+          <td>{{list.lastname}}</td>
+          <td>{{list.groups}}</td>
+          <td>{{list.date}}</td>
+          <td>{{list.time}}</td>
+        </tr>
+      </tbody>
+    </table>
 
 
 

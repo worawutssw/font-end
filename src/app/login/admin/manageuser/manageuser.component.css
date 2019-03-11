@@ -22,3 +22,7 @@ form{
 i{
     cursor: pointer;
   }
+  th {
+    background-color:gray;
+    color: white;
+} 

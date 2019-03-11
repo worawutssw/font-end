@@ -1,3 +1,7 @@
 .mform{
 margin-left: 10%
 }
+th {
+    background-color:gray;
+    color: white;
+} 

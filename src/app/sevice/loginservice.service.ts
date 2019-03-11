@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { urlServer } from '../url/url'
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -62,6 +63,9 @@ export class LoginserviceService {
   }
   gettableall(data1,data2){
     return this.http.get(urlServer.ipServer + 'selecttableall'+'/'+data1+'/'+data2)
+  }
+  gethisdate(data1,data2){
+    return this.http.get(urlServer.ipServer + 'gethisdatewm'+'/'+data1+'/'+data2)
   }
   gethistory(){
     return this.http.get(urlServer.ipServer + 'gethistory/')

@@ -98,6 +98,7 @@ export class ManagetableComponent implements OnInit {
 
   public term = new FormControl('');
   public sec = new FormControl('');
+  showtable;
 
   constructor(
     private service: LoginserviceService,
@@ -108,20 +109,20 @@ export class ManagetableComponent implements OnInit {
   ngOnInit() {
     this.service.getsidplaytable().subscribe(
       (res) => {
-        console.log(res);
+        // console.log(res);
         this.listtable = res;
       }
     )
     this.service.getterm().subscribe(
       (res) => {
-        console.log(res);
+        // console.log(res);
         this.listterm = res;
 
       }
     )
     this.service.getstdgroup().subscribe(
       (res) => {
-        console.log(res);
+        // console.log(res);
         this.liststdgroup = res;
 
       }
@@ -157,7 +158,7 @@ export class ManagetableComponent implements OnInit {
       header: true,
       complete: (results, file) => {
         this.fileData = results;
-        console.log(this.fileData.data);
+        // console.log(this.fileData.data);
       },
     };
     this.papa.parse(this.data, options);
@@ -167,7 +168,7 @@ export class ManagetableComponent implements OnInit {
       alert('กรุณาเลือกไฟล์เพื่ออัพโหลด')
     }
     else {
-      console.log(this.fileData.data)
+      // console.log(this.fileData.data)
       const data = {
         data: this.fileData.data
       }
@@ -181,17 +182,18 @@ export class ManagetableComponent implements OnInit {
   }
 
   gettable() {
-    console.log(this.term, this.sec);
+    // console.log(this.term, this.sec);
 
     this.service.gettableall(this.term.value, this.sec.value).subscribe(
       (res) => {
         console.log(res);
         let data = res;
+        this.showtable = data;
         this.service.updateDisplay(this.emptyData).subscribe(
           (res) => {
             this.service.getsidplaytable().subscribe(
               (res) => {
-                console.log(res);
+                // console.log(res);
                 this.listtable = res;
                 this.service.updateDisplay(data).subscribe(
                   (res) => {

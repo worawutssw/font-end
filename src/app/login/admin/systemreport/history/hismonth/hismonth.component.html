@@ -6,58 +6,62 @@
   <div class="col-md-1"></div>
   <div class="col-md">
 
-    <br>
-    <mat-form-field>
-        <mat-select placeholder="เลือกเดือน" [formControl]="month">
-          <mat-option value="01">มกราคม</mat-option>
-          <mat-option value="02">กุมภาพันธ์</mat-option>
-          <mat-option value="03">มีนาคม</mat-option>
-          <mat-option value="04">เมษายน</mat-option>
-          <mat-option value="05">พฤษภาคม</mat-option>
-          <mat-option value="06">มิถุนายน</mat-option>
-          <mat-option value="07">กรกฎาคม</mat-option>
-          <mat-option value="08">สิงหาคม</mat-option>
-          <mat-option value="09">กันยายน</mat-option>
-          <mat-option value="10">ตุลาคม</mat-option>
-          <mat-option value="11">พฤศจิกายน</mat-option>
-          <mat-option value="12">ธันวาคม</mat-option>
+    <br> 
+    <mat-form-field >
+        <mat-select placeholder="เลือกเดือน" [formControl]="month" [(ngModel)]="name">
+          <mat-option value="2019-01">มกราคม</mat-option>
+          <mat-option value="2019-02">กุมภาพันธ์</mat-option>
+          <mat-option value="2019-03">มีนาคม</mat-option>
+          <mat-option value="2019-04">เมษายน</mat-option>
+          <mat-option value="2019-05">พฤษภาคม</mat-option>
+          <mat-option value="2019-06">มิถุนายน</mat-option>
+          <mat-option value="2019-07">กรกฎาคม</mat-option>
+          <mat-option value="2019-08">สิงหาคม</mat-option>
+          <mat-option value="2019-09">กันยายน</mat-option>
+          <mat-option value="2019-10">ตุลาคม</mat-option>
+          <mat-option value="2019-11">พฤศจิกายน</mat-option>
+          <mat-option value="2019-12">ธันวาคม</mat-option>
         </mat-select>
       </mat-form-field>
       &nbsp;
+      
 
     &nbsp;&nbsp;
-    <button type="button" class="btn btn-success">ตกลง</button>
+
+    <!-- <button type="button" class="btn btn-success" (click)="selectmonth()">ตกลง</button> -->
     <br>
     <br>
 
 
     <table class="table table-bordered shadow">
-        <thead class="thead-light">
-          <tr>
-            <th scope="col">หมายเลขอุปกรณ์</th>
-            <th scope="col">ชื่ออุปกรณ์</th>
-            <th scope="col">หมายเลขห้อง</th>
-            <th scope="col">รหัสนักศึกษา</th>
-            <th scope="col">ชื่อผู้ใข้งาน</th>
-            <th scope="col">นามสกุล</th>
-            <th scope="col">วันที่ใช้งาน</th>
-            <th scope="col">เวลาที่ใช้งาน</th>
-  
-          </tr>
-        </thead>
-        <tbody *ngFor="let list of listhisttory | filter:name">
-          <tr>
-            <td>{{list.hardwareid}}</td>
-            <td>{{list.hardwarename}}</td>
-            <td>{{list.roomid}}</td>
-            <td>{{list.student_id}}</td>
-            <td>{{list.name}}</td>
-            <td>{{list.lastname}}</td>
-            <td>{{list.date}}</td>
-            <td>{{list.time}}</td>
-          </tr>
-        </tbody>
-      </table>
+      <thead >
+        <tr>
+          <th scope="col">หมายเลขอุปกรณ์</th>
+          <th scope="col">ชื่ออุปกรณ์</th>
+          <th scope="col">หมายเลขห้อง</th>
+          <th scope="col">รหัสนักศึกษา</th>
+          <th scope="col">ชื่อผู้ใข้งาน</th>
+          <th scope="col">นามสกุล</th>
+          <th scope="col">กลุ่มเรียน</th>
+          <th scope="col">วันที่ใช้งาน</th>
+          <th scope="col">เวลาที่ใช้งาน</th>
+
+        </tr>
+      </thead>
+      <tbody *ngFor="let list of listhisttory | filter:name">
+        <tr>
+          <td>{{list.hardwareid}}</td>
+          <td>{{list.hardwarename}}</td>
+          <td>{{list.roomid}}</td>
+          <td>{{list.student_id}}</td>
+          <td>{{list.name}}</td>
+          <td>{{list.lastname}}</td>
+          <td>{{list.groups}}</td>
+          <td>{{list.date}}</td>
+          <td>{{list.time}}</td>
+        </tr>
+      </tbody>
+    </table>
 
 
 

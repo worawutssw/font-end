@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { LoginserviceService } from 'src/app/sevice/loginservice.service';
+import { delegateToClassInput } from '@angular/core/src/render3/instructions';
 
 @Component({
   selector: 'app-hismonth',
@@ -9,12 +10,14 @@ import { LoginserviceService } from 'src/app/sevice/loginservice.service';
 })
 export class HismonthComponent implements OnInit {
 
- month = new FormControl('')
- listhisttory;
+  public month = new FormControl('')
+ 
+ 
+  listhisttory;
 
 
 
-
+  
 
   constructor(
     private service : LoginserviceService
@@ -32,4 +35,21 @@ export class HismonthComponent implements OnInit {
 
   }
 
+
+  selectmonth(){
+    console.log(this.month.value);
+  
+  }
+
+
+
+
+
+
+
+
+
+
+
 }
+
