@@ -10,13 +10,14 @@ import { ManagerooomComponent } from './login/admin/managerooom/managerooom.comp
 import { SystemreportComponent } from './login/admin/systemreport/systemreport.component';
 import { HomeComponent } from './login/admin/home/home.component';
 import { ManagememberComponent } from './login/admin/managemember/managemember.component';
-import { ConnectComponent } from './login/admin/systemreport/connect/connect.component';
 import { HistoryComponent } from './login/admin/systemreport/history/history.component';
 import { UsingChairComponent } from './login/admin/systemreport/using-chair/using-chair.component';
 import { HisdayComponent } from './login/admin/systemreport/history/hisday/hisday.component';
 import { HisweekComponent } from './login/admin/systemreport/history/hisweek/hisweek.component';
 import { HismonthComponent } from './login/admin/systemreport/history/hismonth/hismonth.component';
 import { HistermComponent } from './login/admin/systemreport/history/histerm/histerm.component';
+import { UsingroomComponent } from './login/admin/systemreport/usingroom/usingroom.component';
+
 
 
 const routes: Routes = [
@@ -49,6 +50,10 @@ const routes: Routes = [
         component: SystemreportComponent,
         children:[
           {
+            path: 'usingroom',
+            component: UsingroomComponent
+          },
+          {
             path: 'using_chair',
             component: UsingChairComponent
           },
@@ -74,10 +79,6 @@ const routes: Routes = [
               }
             ]
           },
-          {
-            path: 'connect',
-            component: ConnectComponent
-          }
 
         ]
       },

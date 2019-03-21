@@ -323,9 +323,12 @@
                                     <th scope="col">รหัสวิชา</th>
                                     <th scope="col">ชื่อวิชา</th>
                                     <th scope="col">หน่วยกิต</th>
+                                    <!-- <th scope="col">คาบเรียน</th> -->
                                     <th scope="col">อาจารย์ผู้สอน</th>
                                     <th scope="col">กลุ่มที่เรียน</th>
                                     <th scope="col">ห้องที่เรียน</th>
+                                    <th scope="col">แก้ใข/ลบ</th>
+                                    
 
 
                                     
@@ -336,9 +339,15 @@
                                     <td>{{list.Subject_id}}</td>
                                     <td>{{list.Subject_name}}</td>
                                     <td>{{list.Subject_unit}}</td>
+                                    <!-- <td>{{list.Time}}</td> -->
                                     <td>{{list.Teacher}}</td>
                                     <td>{{list.Sec}}</td>
                                     <td>{{list.Room}}</td>
+                                    <td>&nbsp;&nbsp;
+                                        <i class="fa fa-pencil" (click)="updateRoom(list,editroom)"
+                                                aria-hidden="true" style="color: rgb(255, 136, 0)" ></i>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <i class="fa fa-trash-o" (click)="deleteRoom(list.roomid,deletroom)"
+                                                aria-hidden="true" style="color: rgb(255, 0, 0)"></i></td>
 
                                     
                             </tr>

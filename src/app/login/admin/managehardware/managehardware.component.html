@@ -53,12 +53,12 @@
                                                 <!-- <td>{{list.hardwarerfid}}</td> -->
                                                 <td *ngIf="list.hardwarestatus == 1"
                                                         class="badge badge-pill badge-success"
-                                                        style="margin-left: 20%; margin-top: 5px; ">Connected</td>
+                                                        style="margin-left: 15%; margin-top: 5px; ">มีการเชื่อมต่อ</td>
                                                 <td *ngIf="list.hardwarestatus == 0"
                                                         class="badge badge-pill badge-danger"
-                                                        style="margin-left: 20%;margin-top: 5px">Disconnect</td>
-                                                <td *ngIf="list.hardwaresit == 1">มีผู้ใช้งาน</td>
-                                                <td *ngIf="list.hardwaresit == 0">ไม่มีผู้ใช้งาน</td>
+                                                        style="margin-left: 10%;margin-top: 5px">ไม่มีการเชื่อมต่อ</td>
+                                                <td *ngIf="list.hardwaresit == 1" style="color: rgb(9, 255, 0)">มีผู้ใช้งาน</td>
+                                                <td *ngIf="list.hardwaresit == null" style="color: red">ไม่มีผู้ใช้งาน</td>
                                                 <td>{{list.roomid}}</td>
                                                 <td>&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -108,9 +108,17 @@
                                         <input matInput placeholder="ชื่ออุปกรณ์" formControlName="hardwarename">
                                 </mat-form-field>
                                 <br>
-                                <mat-form-field class="infrom">
+                                <!-- <mat-form-field class="infrom">
                                         <input matInput placeholder="หมายเลขห้อง" formControlName="roomid">
-                                </mat-form-field>
+                                </mat-form-field> -->
+
+                                <mat-form-field class="infrom">
+                                        <mat-label>หมายเลขห้อง</mat-label>
+                                        <select matNativeControl formControlName="roomid" id="mySelectId">
+                                          <option *ngFor="let list of listRoom" value="{{list.roomid}}" >{{list.roomid}}</option>
+
+                                        </select>
+                                      </mat-form-field>
 
                         </div>
 
@@ -160,6 +168,25 @@
                                         <input matInput placeholder="ชื่ออุปกรณ์" formControlName="updatehardwarename"
                                                 [value]="updateHardwarename" [(ngModel)]="updateHardwarename">
                                 </mat-form-field>
+
+                                <!-- <mat-form-field class="infrom">
+                                        <input matInput placeholder="หมายเลขห้อง" formControlName="updateroomid"
+                                                [value]="updateRoomid" [(ngModel)]="updateroomid">
+                                </mat-form-field> -->
+
+
+                                    <mat-form-field class="infrom">
+                                        <mat-label>หมายเลขห้อง</mat-label>
+                                        <select matNativeControl formControlName="updateroomid" id="mySelectId">
+                                          <option *ngFor="let list of listRoom" value="{{list.roomid}}" >{{list.roomid}}</option>
+
+                                        </select>
+                                      </mat-form-field>
+
+
+
+
+
 
                         </div>
 

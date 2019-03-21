@@ -28,10 +28,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
 import { nebularModule } from './nebular';
 import { ManagememberComponent } from './login/admin/managemember/managemember.component';
-import { TabsModule, BsDatepickerModule, DatepickerModule } from 'ngx-bootstrap';
+import { TabsModule, BsDatepickerModule, DatepickerModule, CarouselModule } from 'ngx-bootstrap';
 import { UsingChairComponent } from './login/admin/systemreport/using-chair/using-chair.component';
 import { HistoryComponent } from './login/admin/systemreport/history/history.component';
-import { ConnectComponent } from './login/admin/systemreport/connect/connect.component';
+import { UsingroomComponent } from './login/admin/systemreport/usingroom/usingroom.component';
 import { HisdayComponent } from './login/admin/systemreport/history/hisday/hisday.component';
 import { HisweekComponent } from './login/admin/systemreport/history/hisweek/hisweek.component';
 import { HismonthComponent } from './login/admin/systemreport/history/hismonth/hismonth.component';
@@ -52,11 +52,11 @@ import { HistermComponent } from './login/admin/systemreport/history/histerm/his
     ManagememberComponent,
     UsingChairComponent,
     HistoryComponent,
-    ConnectComponent,
     HisdayComponent,
     HisweekComponent,
     HismonthComponent,
-    HistermComponent
+    HistermComponent,
+    UsingroomComponent
   ],
   imports: [
     PapaParseModule,
@@ -85,7 +85,8 @@ import { HistermComponent } from './login/admin/systemreport/history/histerm/his
     // NbThemeModule.forRoot({ name: 'default' }),
     NbLayoutModule,
     BsDatepickerModule.forRoot(),
-    DatepickerModule.forRoot()
+    DatepickerModule.forRoot(),
+    CarouselModule.forRoot()
   ],
   entryComponents:[HisdayComponent],
   providers: [AuthenticationService],

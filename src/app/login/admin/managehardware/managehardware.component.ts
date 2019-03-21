@@ -21,9 +21,11 @@ export class ManagehardwareComponent implements OnInit {
 
   public UpdateHardware = new FormGroup({
     updateHardwareid: new FormControl,
-    updatehardwarename: new FormControl
+    updatehardwarename: new FormControl,
+    updateroomid: new FormControl
 
   })
+
 
 
 
@@ -35,12 +37,27 @@ export class ManagehardwareComponent implements OnInit {
   updateHardwareid;
   x;
   statusHW;
+  updateRoomid;
+  listRoom;
+  
   constructor(
     private service: LoginserviceService,
     private modal: NgbModal
   ) { }
 
   ngOnInit() {
+
+    this.service.getlistroom().subscribe(
+      (res) => {
+        this.listRoom = res;
+        console.log(res);
+        
+      }
+    )
+    
+
+
+
 
     timer(1000, 5000).pipe(
       take(100000)).subscribe(x => {
@@ -113,6 +130,7 @@ export class ManagehardwareComponent implements OnInit {
     this.modal.open(modal, { centered: true })
     this.updateHardwarename = list.hardwarename;
     this.updateHardwareid = list.hardwareid;
+    this.updateRoomid = list.roomid;
 
   }
   Edit() {
@@ -120,7 +138,7 @@ export class ManagehardwareComponent implements OnInit {
       (res) => {
         alert('แก้ใขสำเร็จ')
         this.closeModal();
-        console.log('UpdateHardware');
+        console.log(this.UpdateHardware.value);
         this.service.gethardware().subscribe(
           (res) => {
             this.listhardware = res
@@ -152,5 +170,18 @@ export class ManagehardwareComponent implements OnInit {
     
 
   }
+
+  // selectlistroom(){
+  //   console.log(this.roomid.value)
+  //   this.service.getlistroom(this.roomid.value).subscribe(
+  //     (res) => {
+  //       // alert('suc')
+  //       this.listRoom = res;
+  //     },
+  //     (err) => {
+  //       alert('err')
+  //     }
+  //   )
+  // }
 
 }

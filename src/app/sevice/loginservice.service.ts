@@ -58,6 +58,9 @@ export class LoginserviceService {
   getGroups() {
     return this.http.get(urlServer.ipServer + 'selectgroup')
   }
+  getlistroom(){
+    return this.http.get(urlServer.ipServer + 'getlistroom')
+  }
   getstdgroup(){
     return this.http.get(urlServer.ipServer + 'selectstdgroup')
   }
