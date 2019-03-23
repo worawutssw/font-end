@@ -98,7 +98,7 @@ export class ManagememberComponent implements OnInit {
   }
 
   deletememberConfirm(){
-    console.log(this.adminid);
+    // console.log(this.adminid);
     
     this.Service.deletememberService(this.adminid).subscribe(
       (res) => {

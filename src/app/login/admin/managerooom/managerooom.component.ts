@@ -76,11 +76,12 @@ export class ManagerooomComponent implements OnInit {
   }
 
   edit(){
+    console.log(this.UpdateRoom.value);
     this.Service.updateRoom(this.UpdateRoom.value).subscribe(
       (res) => {
         alert('แก้ใขสำเร็จ')
         this.closeModal();
-        console.log('UpdateRoom');
+        
         this.Service.getroom().subscribe(
           (res) => {
             this.listroom = res

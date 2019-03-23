@@ -43,6 +43,9 @@ export class LoginserviceService {
   deletememberService(data){
     return this.http.delete(urlServer.ipServer + 'deletemember/' + data)
   }
+  deletetable(data1,data2){
+    return this.http.delete(urlServer.ipServer + 'deletetable/' + data1 + '/' + data2)
+  }
   addstudent(data) {
     return this.http.post(urlServer.ipServer + 'addstudent', data)
   }
@@ -54,6 +57,9 @@ export class LoginserviceService {
   }
   Addmember(data){
     return this.http.post(urlServer.ipServer + 'addmember' , data)
+  }
+  add_table(data){
+    return this.http.post(urlServer.ipServer + 'add_table', data)
   }
   getGroups() {
     return this.http.get(urlServer.ipServer + 'selectgroup')
@@ -102,6 +108,9 @@ export class LoginserviceService {
   }
   updateDisplay(data){
     return this.http.put(urlServer.ipServer + 'updateDisplay', data)
+  }
+  update_table(data){
+      return this.http.put(urlServer.ipServer + 'update_table', data)
   }
   updatemember(data){
     return this.http.put(urlServer.ipServer + 'updatemember', data)
