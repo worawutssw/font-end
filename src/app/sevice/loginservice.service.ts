@@ -19,6 +19,9 @@ export class LoginserviceService {
   getListName(data) {
     return this.http.get(urlServer.ipServer + 'listname/' + data)
   }
+  getusingroom(data){
+    return this.http.get(urlServer.ipServer + 'getusingroom/' + data)
+  }
   getroom(){
     return this.http.get(urlServer.ipServer + 'listroom/')
   }
@@ -31,6 +34,13 @@ export class LoginserviceService {
   getterm(){
     return this.http.get(urlServer.ipServer + 'selectterm')
   }
+  getcountroom(){
+    return this.http.get(urlServer.ipServer+ 'getcountroom')
+  }
+  getRoomTable(){
+    return this.http.get(urlServer.ipServer+ 'getRoomTable')
+  }
+
   deletedeletestudent(data) {
     return this.http.delete(urlServer.ipServer + 'deletestudent/' + data)
   }

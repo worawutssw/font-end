@@ -31,6 +31,7 @@ export class ManagerooomComponent implements OnInit {
   roomid;
   updateRoomid;
   updateRoomname;
+  listRoomTable;
   constructor(
     private Service:LoginserviceService,
     private modal: NgbModal
@@ -42,6 +43,14 @@ export class ManagerooomComponent implements OnInit {
     this.Service.getroom().subscribe(
       (res) =>{
         this.listroom = res;
+      }
+    )
+
+    this.Service.getRoomTable().subscribe(
+      (res) =>{
+        this.listRoomTable = res;
+        console.log(res);
+        
       }
     )
   }
@@ -116,6 +125,8 @@ export class ManagerooomComponent implements OnInit {
       }
 
     )
+
+    
     
     
   }

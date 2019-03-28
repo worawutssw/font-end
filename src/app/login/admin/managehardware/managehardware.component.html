@@ -13,7 +13,7 @@
                 <div class="col-md-10">
                         <br><br>
                         <table class="table table-bordered shadow">
-                                <thead >
+                                <thead>
                                         <tr>
                                                 <th scope="col">หมายเลขอุปกรณ์</th>
                                                 <th scope="col">ชื่ออุปกรณ์</th>
@@ -25,7 +25,7 @@
                                                 <th scope="col">&nbsp;&nbsp;แก้ใข/ลบ</th>
 
                                 </thead>
-                                <tbody *ngFor="let list of listhardware | filter:name" >
+                                <tbody *ngFor="let list of listhardware | filter:name">
                                         <tr>
 
                                                 <td>{{list.hardwareid}}</td>
@@ -57,17 +57,21 @@
                                                 <td *ngIf="list.hardwarestatus == 0"
                                                         class="badge badge-pill badge-danger"
                                                         style="margin-left: 10%;margin-top: 5px">ไม่มีการเชื่อมต่อ</td>
-                                                <td *ngIf="list.hardwaresit == 1" style="color: rgb(9, 255, 0)">มีผู้ใช้งาน</td>
-                                                <td *ngIf="list.hardwaresit == null" style="color: red">ไม่มีผู้ใช้งาน</td>
+                                                <td *ngIf="list.hardwaresit == 1" style="color: rgb(9, 255, 0)">
+                                                        มีผู้ใช้งาน</td>
+                                                <td *ngIf="list.hardwaresit == null" style="color: red">ไม่มีผู้ใช้งาน
+                                                </td>
                                                 <td>{{list.roomid}}</td>
                                                 <td>&nbsp;&nbsp;&nbsp;&nbsp;
 
                                                         <i class="fa fa-pencil"
                                                                 (click)="updatehardware(list,edithardware)"
-                                                                aria-hidden="true" style="color: rgb(255, 136, 0)"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                aria-hidden="true"
+                                                                style="color: rgb(255, 136, 0)"></i>&nbsp;&nbsp;&nbsp;&nbsp;
                                                         <i class="fa fa-trash-o"
                                                                 (click)="deleteHardware(list.hardwareid,deletehardware)"
-                                                                aria-hidden="true" style="color: rgb(255, 0, 0)"></i></td>
+                                                                aria-hidden="true" style="color: rgb(255, 0, 0)"></i>
+                                                </td>
 
 
                                         </tr>
@@ -115,10 +119,11 @@
                                 <mat-form-field class="infrom">
                                         <mat-label>หมายเลขห้อง</mat-label>
                                         <select matNativeControl formControlName="roomid" id="mySelectId">
-                                          <option *ngFor="let list of listRoom" value="{{list.roomid}}" >{{list.roomid}}</option>
+                                                <option *ngFor="let list of listRoom" value="{{list.roomid}}">
+                                                        {{list.roomid}}</option>
 
                                         </select>
-                                      </mat-form-field>
+                                </mat-form-field>
 
                         </div>
 
@@ -175,13 +180,14 @@
                                 </mat-form-field> -->
 
 
-                                    <mat-form-field class="infrom">
+                                <mat-form-field class="infrom">
                                         <mat-label>หมายเลขห้อง</mat-label>
                                         <select matNativeControl formControlName="updateroomid" id="mySelectId">
-                                          <option *ngFor="let list of listRoom" value="{{list.roomid}}" >{{list.roomid}}</option>
+                                                <option *ngFor="let list of listRoom" value="{{list.roomid}}">
+                                                        {{list.roomid}}</option>
 
                                         </select>
-                                      </mat-form-field>
+                                </mat-form-field>
 
 
 
@@ -198,4 +204,10 @@
 
                 </div>
         </form>
+</ng-template>
+
+<ng-template #alertbatt let-modal>
+        <div class="alert alert-danger" role="alert">
+                A simple danger alert—check it out!
+        </div>
 </ng-template>
