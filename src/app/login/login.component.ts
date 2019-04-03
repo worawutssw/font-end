@@ -16,24 +16,24 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class LoginComponent implements OnInit {
 
   public loginForm = new FormGroup({
-    adminid : new FormControl(''),
-    adminpw : new FormControl('')
+    adminid: new FormControl(''),
+    adminpw: new FormControl('')
   })
   modalRef: BsModalRef;
   constructor(
     private modalService: NgbModal,
-    private service:LoginserviceService,
-    private authService:AuthenticationService,
-    private route:Router
-    ) { }
+    private service: LoginserviceService,
+    private authService: AuthenticationService,
+    private route: Router
+  ) { }
 
   ngOnInit() {
   }
 
   openModal(template) {
-     this.modalService.open(template , {centered: true})
+    this.modalService.open(template, { centered: true })
   }
-  login(){
+  login() {
     console.log(this.loginForm.value)
     this.service.loginAdmin(this.loginForm.value).subscribe(
       (res) => {
@@ -41,10 +41,11 @@ export class LoginComponent implements OnInit {
         this.authService.setActiveUser(res);
         this.route.navigate(['admin/home']);
         this.modalService.dismissAll()
+      },
+
+      (err) => {
+        alert('ข้อมูลผิดพลาด')
       }
-    ),
-    (err) => {
-      alert('ข้อมูลผิดพลาด')
-    }
+    )
   }
 }

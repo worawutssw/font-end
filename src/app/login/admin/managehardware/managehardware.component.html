@@ -51,13 +51,13 @@
                                                                 <i>{{list.hardwarebatt}}%</i></ngb-progressbar>
                                                 </td>
                                                 <!-- <td>{{list.hardwarerfid}}</td> -->
-                                                <td *ngIf="list.hardwarestatus == 1"
+                                                <td *ngIf="list.hardwarestatus == 'มีการเชื่อมต่อ'"
                                                         class="badge badge-pill badge-success"
                                                         style="margin-left: 15%; margin-top: 5px; ">มีการเชื่อมต่อ</td>
-                                                <td *ngIf="list.hardwarestatus == 0"
+                                                <td *ngIf="list.hardwarestatus == 'ไม่มีการเชื่อมต่อ' "
                                                         class="badge badge-pill badge-danger"
                                                         style="margin-left: 10%;margin-top: 5px">ไม่มีการเชื่อมต่อ</td>
-                                                <td *ngIf="list.hardwaresit == 1" style="color: rgb(9, 255, 0)">
+                                                <td *ngIf="list.hardwaresit != null" style="color: rgb(9, 255, 0)">
                                                         มีผู้ใช้งาน</td>
                                                 <td *ngIf="list.hardwaresit == null" style="color: red">ไม่มีผู้ใช้งาน
                                                 </td>

@@ -125,5 +125,11 @@ export class LoginserviceService {
   updatemember(data){
     return this.http.put(urlServer.ipServer + 'updatemember', data)
   }
+  updateDisonnect(data){
+    return this.http.put(urlServer.ipServer + 'updateDisonnect', data)
+  }
+  updateConnect(data){
+    return this.http.put(urlServer.ipServer + 'updateConnect', data)
+  }
 
 }

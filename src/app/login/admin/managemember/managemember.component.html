@@ -11,6 +11,20 @@
     <!-- <div class="col-md-1"></div> -->
     <div class="col-md">
       <br><br>
+      <mat-form-field >
+          <mat-label>ค้นหาสถานะผู้ใช้งาน</mat-label>
+          <mat-select #fontSize value="16px" (selectionChange)="triggerResize()" [(ngModel)]="name">
+            <mat-option value="admin">Admin</mat-option>
+            <mat-option value="teacher">Teacher</mat-option>
+            
+
+          </mat-select>
+        </mat-form-field>
+
+      <!-- <mat-form-field>
+          <input matInput placeholder="ค้นหาชื่อ" [(ngModel)]="name">
+      </mat-form-field> -->
+      <br>
       <table class="table table-bordered shadow">
         <thead>
           <tr>

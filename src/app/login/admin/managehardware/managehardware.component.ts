@@ -39,6 +39,8 @@ export class ManagehardwareComponent implements OnInit {
   statusHW;
   updateRoomid;
   listRoom;
+  UpdateConnect;
+  UpdateDisConnect;
   
   constructor(
     private service: LoginserviceService,
@@ -46,7 +48,7 @@ export class ManagehardwareComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
+  //  -------------------getroom
     this.service.getlistroom().subscribe(
       (res) => {
         this.listRoom = res;
@@ -54,46 +56,92 @@ export class ManagehardwareComponent implements OnInit {
         
       }
     )
+
+    this.service.gethardware().subscribe(
+      (res) => {
+        this.listhardware = res;
+        return this.listhardware;
+      }
+    )
+
+    
+  //  -------------------getroom
     
 
+  timer(1000, 20000).pipe(
+    take(100000)).subscribe(x => {
+      this.service.gethardware().subscribe(
+        (res) => {
+          this.listhardware = res;
+          return this.listhardware;
+        }
+      )
+      timer(1000, 20000).pipe(
+        take(100000)).subscribe(x => {
+          this.service.gethardware().subscribe(
+            (res) => {
+              this.listhardware1 = res;
+              for (let i of this.listhardware) {
+                for (let j of this.listhardware1) {
 
-
-
-    timer(1000, 5000).pipe(
-      take(100000)).subscribe(x => {
-        this.service.gethardware().subscribe(
-          (res) => {
-            this.listhardware = res;
-            return this.listhardware;
-          }
-        )
-        timer(1000, 5000).pipe(
-          take(100000)).subscribe(x => {
-            this.service.gethardware().subscribe(
-              (res) => {
-                this.listhardware1 = res;
-                for (let i of this.listhardware) {
-                  for (let j of this.listhardware1) {
-
-                    if (i.hardwareid == j.hardwareid) {
-                      if (i.hardwaretime != j.hardwaretime) {
-                        console.log("Connected", i.hardwareid);
-                        
-                      }
-                      if (i.hardwaretime == j.hardwaretime) {
-                        console.log("Disconnect", i.hardwareid);
-                        i.hardwarestatus = 0;
-                        this.statusHW = i.hardwarestatus;
-                      }
+                  if (i.hardwareid == j.hardwareid) {
+                    if (i.hardwaretime != j.hardwaretime) {
+                      // console.log("Connected", i.hardwareid);
+                      this.UpdateConnect = i.hardwareid;
+                      this.UpdateConnectFn();
                     }
-                    if (i.hardwareid != j.hardwareid) {
+                    if (i.hardwaretime == j.hardwaretime) {
+                      // console.log("Disconnect", i.hardwareid);
+                      this.UpdateDisConnect = i.hardwareid;
+                      this.UpdateDisConnectFn();
+                      // i.hardwarestatus = 0;
+                      // this.statusHW = i.hardwarestatus;
                     }
+                  }
+                  if (i.hardwareid != j.hardwareid) {
                   }
                 }
               }
-            )
-          })
-      })
+            }
+          )
+        })
+    })
+
+    // timer(1000, 5000).pipe(
+    //   take(100000)).subscribe(x => {
+    //     this.service.gethardware().subscribe(
+    //       (res) => {
+    //         this.listhardware = res;
+    //         return this.listhardware;
+    //       }
+    //     )
+    //     timer(1000, 5000).pipe(
+    //       take(100000)).subscribe(x => {
+    //         this.service.gethardware().subscribe(
+    //           (res) => {
+    //             this.listhardware1 = res;
+    //             for (let i of this.listhardware) {
+    //               for (let j of this.listhardware1) {
+
+    //                 if (i.hardwareid == j.hardwareid) {
+    //                   if (i.hardwaretime != j.hardwaretime) {
+    //                     console.log("Connected", i.hardwareid);
+                        
+    //                   }
+    //                   if (i.hardwaretime == j.hardwaretime) {
+    //                     console.log("Disconnect", i.hardwareid);
+    //                     i.hardwarestatus = 0;
+    //                     this.statusHW = i.hardwarestatus;
+    //                   }
+    //                 }
+    //                 if (i.hardwareid != j.hardwareid) {
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         )
+    //       })
+    //   })
 
   }
   openModal(addhardware) {
@@ -169,6 +217,41 @@ export class ManagehardwareComponent implements OnInit {
 
     
 
+  }
+
+
+  UpdateConnectFn(){
+    console.log("UpdateConnect", this.UpdateConnect);
+    const Updatecon = [{
+      data : this.UpdateConnect
+    }]
+    this.service.updateConnect(Updatecon).subscribe(
+      (res) => {
+        console.log("UpdateCon",Updatecon,"สำเร็จ");
+      }
+    )
+
+
+    
+  }
+
+
+
+
+  UpdateDisConnectFn(){
+    // console.log("UpdateDisConnect", this.UpdateDisConnect);
+    const UpdateDis = [{
+      data : this.UpdateDisConnect
+    }]
+    this.service.updateDisonnect(UpdateDis).subscribe(
+      (res) =>{
+        console.log("UpdateDis",UpdateDis,"สำเร็จ");
+        
+      }
+          
+    )
+
+    
   }
 
   // selectlistroom(){

@@ -124,7 +124,8 @@ export class ManagetableComponent implements OnInit {
     Time: new FormControl(''),
     Sec: new FormControl(''),
     Room: new FormControl(''),
-    Term: new FormControl('')
+    Term: new FormControl(''),
+    Time2: new FormControl('')
   })
 
 
